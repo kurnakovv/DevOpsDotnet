@@ -17,10 +17,10 @@ jobs:
          if [[ "${{ secrets.SONAR_TOKEN }}" != "" ]]; \
          then
            echo "Secrets to use a container registry were configured in the repo"
-           echo "have_secrets=true" >> "$GITHUB_OUTPUT"
+           echo "have_secrets=yes" >> "$GITHUB_OUTPUT"
          else
            echo "Secrets to use a container registry were not configured in the repo"
-           echo "have_secrets=false" >> "$GITHUB_OUTPUT"
+           echo "have_secrets=no" >> "$GITHUB_OUTPUT"
          fi
   build:
     name: Build and analyze
@@ -54,7 +54,7 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
-        if: needs.check-registry-secrets.outputs.have_secrets == 'true'
+        if: needs.check-registry-secrets.outputs.have_secrets == 'yes'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
