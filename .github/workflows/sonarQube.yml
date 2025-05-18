@@ -60,7 +60,8 @@ jobs:
           HAVE_SECRETS: ${{ needs.check-registry-secrets.outputs.have_secrets }}
         shell: powershell
         run: |
-          echo "$HAVE_SECRETS"
+          echo '${{ toJSON(needs.check-registry-secrets.outputs) }}'
+          echo $HAVE_SECRETS
           dotnet tool install --global dotnet-coverage
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"kurnakovv_DevOpsDotnet" /o:"kurnakovmaksim" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           dotnet restore
