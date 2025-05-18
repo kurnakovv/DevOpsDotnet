@@ -6,22 +6,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  check-registry-secrets:
-   name: Check if container registry information was set on secrets
-   runs-on: windows-latest
-   outputs:
-     have_secrets: ${{ steps.setvar.outputs.have_secrets }}
-   steps:
-     - id: setvar
-       run: |
-         if [[ "${{ secrets.SONAR_TOKEN }}" != "" ]]; \
-         then
-           echo "Secrets to use a container registry were configured in the repo"
-           echo "have_secrets=true" >> "$GITHUB_OUTPUT"
-         else
-           echo "Secrets to use a container registry were not configured in the repo"
-           echo "have_secrets=false" >> "$GITHUB_OUTPUT"
-         fi
   build:
     name: Build and analyze
     runs-on: windows-latest
@@ -54,14 +38,11 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
-        #if: needs.check-registry-secrets.outputs.have_secrets == 'true'
+        if: secrets.SONAR_TOKEN != ""
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          HAVE_SECRETS: ${{ needs.check-registry-secrets.outputs.have_secrets }}
         shell: powershell
         run: |
-          echo '${{ toJSON(needs.check-registry-secrets.outputs) }}'
-          echo $HAVE_SECRETS
           dotnet tool install --global dotnet-coverage
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"kurnakovv_DevOpsDotnet" /o:"kurnakovmaksim" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           dotnet restore
