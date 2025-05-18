@@ -17,10 +17,10 @@ jobs:
          if [[ "${{ secrets.SONAR_TOKEN }}" != "" ]]; \
          then
            echo "Secrets to use a container registry were configured in the repo"
-           echo "::set-output name=have_secrets::true"
+           echo "have_secrets=true" >> $GITHUB_OUTPUT
          else
            echo "Secrets to use a container registry were not configured in the repo"
-           echo "::set-output name=have_secrets::false"
+           echo "have_secrets=false" >> $GITHUB_OUTPUT
          fi
   build:
     name: Build and analyze
