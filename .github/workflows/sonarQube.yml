@@ -6,6 +6,22 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
+  check-registry-secrets:
+   name: Check if container registry information was set on secrets
+   runs-on: ubuntu-latest
+   outputs:
+     have_secrets: ${{ steps.setvar.outputs.have_secrets }}
+   steps:
+     - id: setvar
+       run: |
+         if [[ "${{ secrets.SONAR_TOKEN }}" != "" ]]; \
+         then
+           echo "Secrets to use a container registry were configured in the repo"
+           echo "::set-output name=have_secrets::true"
+         else
+           echo "Secrets to use a container registry were not configured in the repo"
+           echo "::set-output name=have_secrets::false"
+         fi
   build:
     name: Build and analyze
     runs-on: windows-latest
@@ -38,6 +54,7 @@ jobs:
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       - name: Build and analyze
+        if: needs.check-registry-secrets.outputs.have_secrets == 'true'
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
