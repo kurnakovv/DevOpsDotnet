@@ -1,3 +1,4 @@
+# https://learn.microsoft.com/en-us/community/content/how-to-enforce-dotnet-format-using-editorconfig-github-actions
 name: .NET format
 
 on:

@@ -15,7 +15,7 @@ public class CalculatorServiceTests
     {
         ICalculatorService calculatorService = new CalculatorService();
 
-        int result = calculatorService.Sum(5, 5);
+        int result = calculatorService.Sum(5, 5); 
 
         Assert.Equal(10, result);
         Assert.NotEqual(15, result);
