@@ -33,7 +33,7 @@ jobs:
       - name: Run Stryker
         run: |
           dotnet tool restore
-          dotnet stryker --reporters html
+          dotnet stryker --reporter html
 
       - name: Upload Stryker Report
         uses: actions/upload-artifact@v4
