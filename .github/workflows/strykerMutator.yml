@@ -28,18 +28,15 @@ jobs:
         run: dotnet tool install --global dotnet-stryker
 
       - name: Add Stryker to PATH
-        run: echo "${{ github.env.GITHUB_ENV }}" >> $HOME/.bashrc
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH  # Ensure Stryker is accessible
 
       - name: Run Stryker
         run: |
           dotnet tool restore
           dotnet stryker --reporters html
 
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-
       - name: Upload Stryker Report
         uses: actions/upload-artifact@v2
         with:
           name: stryker-report
-          path: ./StrykerReport
+          path: ./StrykerReport  # Adjust this path according to where Stryker outputs the report
