@@ -33,7 +33,6 @@ jobs:
       - name: Run Stryker
         run: |
           dotnet tool restore
-          dotnet stryker --open-report
           dotnet stryker --with-baseline:${{ github.event.pull_request.base.ref }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${GITHUB_REF}
 
       - name: Upload Stryker Report
