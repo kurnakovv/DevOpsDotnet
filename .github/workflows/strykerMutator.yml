@@ -2,7 +2,7 @@ name: Stryker mutator (mutation tests)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "stryker-mutator" ]
   pull_request:
     branches: [ "main" ]
 
