@@ -10,8 +10,9 @@ jobs:
   mutation-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: stryker-mutator/github-action@v0.0.1
+      - uses: actions/checkout@v4
+      - name: Setup Stryker
+        uses: stryker-mutator/github-action@v0.0.1
         with:
           testProject: "Tests/" # required
           breakAt: "75" # Optional
