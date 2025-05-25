@@ -33,9 +33,10 @@ jobs:
       - name: Run Stryker
         run: |
           dotnet tool restore
-          dotnet stryker
-      - name: Report html          
+          dotnet stryker --reporters html
+
+      - name: Upload Stryker Report
         uses: actions/upload-artifact@v2
         with:
-          name: html-report
-          path: ${{github.workspace}}/Tests/StrykerOutput/**/**/*.html
+          name: stryker-report
+          path: ./StrykerReport
