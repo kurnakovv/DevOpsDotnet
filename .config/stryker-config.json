@@ -1,0 +1,7 @@
+{
+  "stryker-config": {
+    "baseline": {
+      "provider": "Dashboard"
+    }
+  }
+}
