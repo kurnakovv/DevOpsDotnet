@@ -1,0 +1,43 @@
+name: Stryker mutator (mutation tests)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  mutation-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Install Stryker.NET
+        run: dotnet tool install --global dotnet-stryker
+
+      - name: Add Stryker to PATH
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH  # Ensure Stryker is accessible
+
+      - name: Run Stryker
+        run: |
+          dotnet tool restore
+          dotnet stryker --open-report
+          dotnet stryker --with-baseline:${{ github.event.pull_request.base.ref }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${GITHUB_REF}
+
+      - name: Upload Stryker Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: stryker-report
+          path: ${{github.workspace}}/StrykerOutput/**/**/*.html  # Adjust this path according to where Stryker outputs the report
