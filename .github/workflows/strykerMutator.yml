@@ -2,22 +2,33 @@ name: Stryker mutator (mutation tests)
 
 on:
   push:
-    branches: [ "main", "stryker-mutator" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   mutation-test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Stryker
-        uses: stryker-mutator/github-action@v0.0.1
-        with:
-          testProject: "Tests/" # required
-          breakAt: "75" # Optional
 
-      - uses: actions/upload-artifact@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
         with:
-          name: html-report
-          path: ${{github.workspace}}/Tests/StrykerOutput/**/**/*.html
+          dotnet-version: 9.0.x
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Install Stryker.NET
+        run: dotnet tool install --global dotnet-stryker
+
+      - name: Add Stryker to PATH
+        run: echo "${{ github.env.GITHUB_ENV }}" >> $HOME/.bashrc
+
+      - name: Run Stryker
+        run: dotnet stryker
