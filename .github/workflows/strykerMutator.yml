@@ -39,4 +39,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: stryker-report
-          path: ./StrykerReport  # Adjust this path according to where Stryker outputs the report
+          path: ${{github.workspace}}/DevOpsDotnet/DevOpsDotnet/StrykerOutput/**/**/*.html  # Adjust this path according to where Stryker outputs the report
