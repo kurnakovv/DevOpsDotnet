@@ -1,0 +1,22 @@
+name: Stryker mutator (mutation tests)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  mutation-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: stryker-mutator/github-action@v0.0.1
+        with:
+          testProject: "Tests/" # required
+          breakAt: "75" # Optional
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: html-report
+          path: ${{github.workspace}}/Tests/StrykerOutput/**/**/*.html
