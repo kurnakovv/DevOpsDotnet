@@ -1,10 +1,10 @@
 {
-  "stryker-config": {
-    "baseline": {
-      "provider": "Dashboard"
-    },
-    "dashboard": {
-        "project": "github.com/kurnakovv/DevOpsDotnet"
+    "stryker-config": {
+        "reporters": [
+            "json",
+            "html",
+            "markdown",
+            "dashboard"
+        ]
     }
-  }
 }
