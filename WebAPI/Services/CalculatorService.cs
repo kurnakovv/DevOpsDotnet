@@ -1,7 +1,7 @@
 ﻿namespace WebAPI.Services;
 
 /// <summary>
-/// ICalculatorService
+/// ICalculatorService.
 /// </summary>
 public interface ICalculatorService
 {
@@ -28,6 +28,9 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
+        int[] x = [];
+        Console.WriteLine(a);
+        Console.WriteLine(string.Empty);
         return a + b;
     }
 }
