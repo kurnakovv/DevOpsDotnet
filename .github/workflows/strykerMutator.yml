@@ -38,7 +38,7 @@ jobs:
       - name: Run Stryker
         run: |
           dotnet tool restore
-          dotnet stryker -f .config/stryker-config.json --with-baseline:${{ github.ref_name }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${GITHUB_REF} --reporter dashboard
+          dotnet stryker -f .config/stryker-config.json --with-baseline:${{ github.event.pull_request.base.ref }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${GITHUB_REF} --reporter dashboard
 
       - name: Upload Stryker Report
         uses: actions/upload-artifact@v4
