@@ -53,17 +53,15 @@ jobs:
       #   with:
       #     message: |
       #       <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" /> <br /> Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge#mutant) <br /> [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge)](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge#mutant) <br/> Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
-  comment:
+  test:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
-      - uses: actions/github-script@v7
+      - uses: mshick/add-pr-comment@v2
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+          message: |
+            **Hello**
+            🌏
+            !
 # https://github.com/actions/upload-artifact/issues/50#issuecomment-1856471599
