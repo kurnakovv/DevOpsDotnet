@@ -30,9 +30,6 @@ jobs:
       - name: Install Stryker.NET
         run: dotnet tool install --global dotnet-stryker
 
-      - name: Add Stryker to PATH
-        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH  # Ensure Stryker is accessible
-
       - name: Run Stryker (dashboard)
         run: |
           dotnet tool restore
