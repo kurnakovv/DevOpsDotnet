@@ -56,20 +56,6 @@ jobs:
           update-only: true
           message: |
             <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" /> <br />
-            Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge#mutant) <br />
-            [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge)](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge#mutant) <br/>
+            Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${GITHUB_REF}#mutant) <br />
+            [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${GITHUB_REF})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${GITHUB_REF}#mutant) <br/>
             Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
-# https://github.com/actions/upload-artifact/issues/50#issuecomment-1856471599
-
-  # report-message:
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     pull-requests: write
-  #   steps:
-  #     - uses: mshick/add-pr-comment@v2
-  #       with:
-  #         update-only: true
-  #         message: |
-  #           <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" /> <br />
-  #           Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge#mutant) <br />
-  #           [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge)](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/refs/pull/3/merge#mutant) <br/> Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
