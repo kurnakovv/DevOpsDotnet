@@ -9,7 +9,7 @@ public interface ICalculatorService
     /// Sum
     /// </summary>
     /// <param name="a">a</param>
-    /// <param name="b">b</param>
+    /// <param name="b">123456789100000000000000000010000000000100000000000001000000000000000100000000000000000000000010000000000000000000010000000001</param>
     /// <returns>sum</returns>
     int Sum(
         int a,
@@ -28,9 +28,6 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
-        int[] x = [];
-        Console.WriteLine(a);
-        Console.WriteLine(string.Empty);
         return a + b;
     }
 }

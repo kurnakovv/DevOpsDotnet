@@ -111,7 +111,7 @@ csharp_style_expression_bodied_operators = true:silent
 csharp_style_expression_bodied_properties = true:silent
 csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = false:error
-csharp_style_expression_bodied_lambdas = false:error
+csharp_style_expression_bodied_lambdas = when_one_single_line:error
 csharp_style_expression_bodied_local_functions = false:error
 
 # Pattern matching
@@ -228,37 +228,37 @@ dotnet_diagnostic.SA1016.severity = error
 dotnet_diagnostic.SA1017.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1018.md
-dotnet_diagnostic.SA1018.severity = none
+dotnet_diagnostic.SA1018.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1019.md
-dotnet_diagnostic.SA1019.severity = none
+dotnet_diagnostic.SA1019.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1020.md
-dotnet_diagnostic.SA1020.severity = none
+dotnet_diagnostic.SA1020.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1021.md
-dotnet_diagnostic.SA1021.severity = none
+dotnet_diagnostic.SA1021.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1022.md
-dotnet_diagnostic.SA1022.severity = none
+dotnet_diagnostic.SA1022.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1023.md
-dotnet_diagnostic.SA1023.severity = none
+dotnet_diagnostic.SA1023.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1024.md
-dotnet_diagnostic.SA1024.severity = none
+dotnet_diagnostic.SA1024.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1025.md
-dotnet_diagnostic.SA1025.severity = none
+dotnet_diagnostic.SA1025.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1026.md
-dotnet_diagnostic.SA1026.severity = none
+dotnet_diagnostic.SA1026.severity = error
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1027.md
 dotnet_diagnostic.SA1027.severity = none
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1028.md
-dotnet_diagnostic.SA1028.severity = none
+dotnet_diagnostic.SA1028.severity = error
 
 
 ### Readability Rules (SA1100-)
@@ -272,28 +272,28 @@ dotnet_diagnostic.SA1100.severity = none
 dotnet_diagnostic.SA1101.severity = none
 
 # A C# query clause does not begin on the same line as the previous clause, or on the next line.
-dotnet_diagnostic.SA1102.severity = none
+dotnet_diagnostic.SA1102.severity = error
 
 # The clauses within a C# query expression are not all placed on the same line, and each clause is not placed on its own line.
-dotnet_diagnostic.SA1103.severity = none
+dotnet_diagnostic.SA1103.severity = error
 
 # A clause within a C# query expression begins on the same line as the previous clause, when the previous clause spans across multiple lines.
-dotnet_diagnostic.SA1104.severity = none
+dotnet_diagnostic.SA1104.severity = error
 
 # A clause within a C# query expression spans across multiple lines, and does not begin on its own line.
-dotnet_diagnostic.SA1105.severity = none
+dotnet_diagnostic.SA1105.severity = error
 
 # The C# code contains an extra semicolon.
-dotnet_diagnostic.SA1106.severity = none
+dotnet_diagnostic.SA1106.severity = error
 
 # The C# code contains more than one statement on a single line.
-dotnet_diagnostic.SA1107.severity = none
+dotnet_diagnostic.SA1107.severity = error
 
 # A C# statement contains a comment between the declaration of the statement and the opening brace of the statement.
-dotnet_diagnostic.SA1108.severity = none
+dotnet_diagnostic.SA1108.severity = error
 
 # A C# statement contains a region tag between the declaration of the statement and the opening brace of the statement.
-dotnet_diagnostic.SA1109.severity = none
+dotnet_diagnostic.SA1109.severity = error
 
 # The opening parenthesis or bracket in a call to a C# method or indexer, or the declaration of a method or indexer, is not placed on the same line as the method or indexer name.
 dotnet_diagnostic.SA1110.severity = none
@@ -302,10 +302,10 @@ dotnet_diagnostic.SA1110.severity = none
 dotnet_diagnostic.SA1111.severity = none
 
 # The closing parenthesis or bracket in a call to a C# method or indexer, or the declaration of a method or indexer, is not placed on the same line as the opening bracket when the element does not take any parameters.
-dotnet_diagnostic.SA1112.severity = none
+dotnet_diagnostic.SA1112.severity = error
 
 # A comma between two parameters in a call to a C# method or indexer, or in the declaration of a method or indexer, is not placed on the same line as the previous parameter.
-dotnet_diagnostic.SA1113.severity = none
+dotnet_diagnostic.SA1113.severity = error
 
 # The start of the parameter list for a method or indexer call or declaration does not begin on the same line as the opening bracket, or on the line after the opening bracket.
 dotnet_diagnostic.SA1114.severity = none
@@ -317,19 +317,22 @@ dotnet_diagnostic.SA1115.severity = none
 dotnet_diagnostic.SA1116.severity = none
 
 # The parameters to a C# method or indexer call or declaration are not all on the same line or each on a separate line.
-dotnet_diagnostic.SA1117.severity = none
+dotnet_diagnostic.SA1117.severity = error
 
 # A parameter to a C# method or indexer, other than the first parameter, spans across multiple lines.
-dotnet_diagnostic.SA1118.severity = none
+dotnet_diagnostic.SA1118.severity = error
+
+# A C# statement contains parenthesis which are unnecessary and should be removed.
+dotnet_diagnostic.SA1119.severity = error
 
 # The C# comment does not contain any comment text.
-dotnet_diagnostic.SA1120.severity = none
+dotnet_diagnostic.SA1120.severity = error
 
 # The code uses one of the basic C# types, but does not use the built-in alias for the type.
-dotnet_diagnostic.SA1121.severity = none
+dotnet_diagnostic.SA1121.severity = error
 
 # The C# code includes an empty string, written as `"`.
-dotnet_diagnostic.SA1122.severity = none
+dotnet_diagnostic.SA1122.severity = error
 
 # The C# code contains a region within the body of a code element.
 dotnet_diagnostic.SA1123.severity = none
@@ -338,49 +341,49 @@ dotnet_diagnostic.SA1123.severity = none
 dotnet_diagnostic.SA1124.severity = none
 
 # The Nullable type has been defined not using the C# shorthand.
-dotnet_diagnostic.SA1125.severity = none
+dotnet_diagnostic.SA1125.severity = error
 
 # A call to a member is not prefixed with the 'this.', 'base.', 'object.' or 'typename.' prefix to indicate the intended method call, within a C# code file.
-dotnet_diagnostic.SA1126.severity = none
+dotnet_diagnostic.SA1126.severity = error
 
 # A generic constraint on a type or method declaration is on the same line as the declaration, within a C# code file.
-dotnet_diagnostic.SA1127.severity = none
+dotnet_diagnostic.SA1127.severity = error
 
 # A constructor initializer is on the same line as the constructor declaration, within a C# code file.
 dotnet_diagnostic.SA1128.severity = none
 
 # A value type was constructed using the syntax `new T()`.
-dotnet_diagnostic.SA1129.severity = none
+dotnet_diagnostic.SA1129.severity = error
 
 # An anonymous method was declared using the form `delegate (parameters) { }`, when a lambda expression would provide equivalent behavior with the syntax `(parameters) => { }`.
-dotnet_diagnostic.SA1130.severity = none
+dotnet_diagnostic.SA1130.severity = error
 
 # A comparison was made between a variable and a literal or constant value, and the variable appeared on the right-hand side of the expression.
-dotnet_diagnostic.SA1131.severity = none
+dotnet_diagnostic.SA1131.severity = error
 
 # Two or more fields were declared in the same field declaration syntax.
-dotnet_diagnostic.SA1132.severity = none
+dotnet_diagnostic.SA1132.severity = error
 
 # Two or more attributes appeared within the same set of square brackets.
-dotnet_diagnostic.SA1133.severity = none
+dotnet_diagnostic.SA1133.severity = error
 
 # An attribute is placed on the same line of code as another attribute or element.
-dotnet_diagnostic.SA1134.severity = none
+dotnet_diagnostic.SA1134.severity = error
 
 # A using directive is not qualified.
-dotnet_diagnostic.SA1135.severity = none
+dotnet_diagnostic.SA1135.severity = error
 
 # Multiple enum values are placed on the same line of code.
-dotnet_diagnostic.SA1136.severity = none
+dotnet_diagnostic.SA1136.severity = error
 
 # Two sibling elements which each start on their own line have different levels of indentation.
-dotnet_diagnostic.SA1137.severity = none
+dotnet_diagnostic.SA1137.severity = error
 
 # Use literal suffix notation instead of casting.
-dotnet_diagnostic.SA1139.severity = none
+dotnet_diagnostic.SA1139.severity = error
 
 # Use tuple syntax instead of the underlying ValueTuple implementation type.
-dotnet_diagnostic.SA1141.severity = none
+dotnet_diagnostic.SA1141.severity = error
 
 
 ### Ordering Rules (SA1200-)
@@ -447,28 +450,28 @@ dotnet_diagnostic.SA1217.severity = error
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/NamingRules.md
 
 # The name of a C# element does not begin with an upper-case letter.
-dotnet_diagnostic.SA1300.severity = none
+dotnet_diagnostic.SA1300.severity = error
 
 # There are currently no situations in which this rule will fire.
 dotnet_diagnostic.SA1301.severity = none
 
 # The name of a C# interface does not begin with the capital letter I.
-dotnet_diagnostic.SA1302.severity = none
+dotnet_diagnostic.SA1302.severity = error
 
 # The name of a constant C# field should begin with an upper-case letter.
 dotnet_diagnostic.SA1303.severity = none
 
 # The name of a non-private readonly C# field should being with an upper-case letter.
-dotnet_diagnostic.SA1304.severity = none
+dotnet_diagnostic.SA1304.severity = error
 
 # The name of a field or variable in C# uses Hungarian notation.
 dotnet_diagnostic.SA1305.severity = none
 
 # The name of a field in C# does not begin with a lower-case letter.
-dotnet_diagnostic.SA1306.severity = none
+dotnet_diagnostic.SA1306.severity = error
 
 # The name of a public or internal field in C# does not begin with an upper-case letter.
-dotnet_diagnostic.SA1307.severity = none
+dotnet_diagnostic.SA1307.severity = error
 
 # A field name in C# is prefixed with *m_* or *s_*.
 dotnet_diagnostic.SA1308.severity = none
@@ -483,42 +486,39 @@ dotnet_diagnostic.SA1310.severity = none
 dotnet_diagnostic.SA1311.severity = none
 
 # The name of a variable in C# does not begin with a lower-case letter.
-dotnet_diagnostic.SA1312.severity = none
+dotnet_diagnostic.SA1312.severity = error
 
 # The name of a parameter in C# does not begin with a lower-case letter.
-dotnet_diagnostic.SA1313.severity = none
+dotnet_diagnostic.SA1313.severity = error
 
 # The name of a C# type parameter does not begin with the capital letter T.
-dotnet_diagnostic.SA1314.severity = none
+dotnet_diagnostic.SA1314.severity = error
 
 # Element names within a tuple type should have the correct casing.
-dotnet_diagnostic.SA1316.severity = none
+dotnet_diagnostic.SA1316.severity = error
 
 
 ### Maintainability Rules (SA1400-)
 # Rules which improve code maintainability.
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/MaintainabilityRules.md
 
-# A C# statement contains parenthesis which are unnecessary and should be removed.
-dotnet_diagnostic.SA1119.severity = none
-
 # The access modifier for a C# element has not been explicitly defined.
-dotnet_diagnostic.SA1400.severity = none
+dotnet_diagnostic.SA1400.severity = error
 
 # A field within a C# class has an access modifier other than private.
-dotnet_diagnostic.SA1401.severity = none
+dotnet_diagnostic.SA1401.severity = error
 
 # A C# code file contains more than one unique type.
 dotnet_diagnostic.SA1402.severity = none
 
 # A C# code file contains more than one namespace.
-dotnet_diagnostic.SA1403.severity = none
+dotnet_diagnostic.SA1403.severity = error
 
 # A Code Analysis SuppressMessage attribute does not include a justification.
-dotnet_diagnostic.SA1404.severity = none
+dotnet_diagnostic.SA1404.severity = error
 
 # A call to Debug.Assert in C# code does not include a descriptive message.
-dotnet_diagnostic.SA1405.severity = none
+dotnet_diagnostic.SA1405.severity = error
 
 # A call to Debug.Fail in C# code does not include a descriptive message.
 dotnet_diagnostic.SA1406.severity = none
