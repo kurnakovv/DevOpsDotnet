@@ -53,7 +53,7 @@ jobs:
       - name: Run Stryker (dashboard)
         run: |
           dotnet tool restore
-          dotnet stryker -f .config/stryker-config.json --with-baseline:${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --reporter dashboard
+          dotnet stryker -f .config/stryker-config.json --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
 
       - name: Run Stryker (html)
         run: |
