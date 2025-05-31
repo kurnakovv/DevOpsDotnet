@@ -48,7 +48,14 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
-        Console.WriteLine("kekw");
+        if (a == 0 && true)
+        {
+            return b;
+        }
+        else if (b == 1)
+        {
+            return a;
+        }
         return a - b;
     }
 }
