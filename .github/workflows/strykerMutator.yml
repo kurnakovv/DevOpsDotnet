@@ -47,10 +47,10 @@ jobs:
       - name: Run Stryker (dashboard)
         run: |
           dotnet tool restore
-          dotnet stryker -f .config/stryker-config.json --with-baseline:${TARGET_BRANCH} --dashboard-api-key ${STRYKER_DASHBOARD_API_KEY} --version ${GITHUB_REF} --reporter dashboard
+          dotnet stryker -f .config/stryker-config.json --with-baseline:"$TARGET_BRANCH" --dashboard-api-key "$STRYKER_DASHBOARD_API_KEY" --version "$GITHUB_REF" --reporter dashboard
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-          TARGET_BRANCH: ${TARGET_BRANCH}
+          TARGET_BRANCH: "$TARGET_BRANCH"
 
       - name: Run Stryker (html)
         run: |
