@@ -18,19 +18,28 @@ jobs:
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; \
           then
+            echo "This is a pull request"
             echo "Target branch is $PR_BASE_REF"
             echo "Source branch is $PR_REF"
             echo "TARGET_BRANCH=$PR_BASE_REF" >> $GITHUB_ENV
             echo "SOURCE_BRANCH=$PR_REF" >> $GITHUB_ENV
           else
+            echo "This is not a pull request"
+
             if [[ "$REF_NAME" != "$DEFAULT_BRANCH" ]]; \
             then
+              echo "Current branch is not a default branch ($REF_NAME != $DEFAULT_BRANCH)"
               echo "Target branch is $DEFAULT_BRANCH"
               echo "TARGET_BRANCH=$DEFAULT_BRANCH" >> $GITHUB_ENV
+            else
+              echo "Current branch is default ($REF_NAME == $DEFAULT_BRANCH)"
             fi
+
             echo "Source branch is $REF_NAME"
             echo "SOURCE_BRANCH=$REF_NAME" >> $GITHUB_ENV
           fi
+
+          echo "$TARGET_BRANCH"
 
           if [[ "$TARGET_BRANCH" != "" ]]; \
           then
