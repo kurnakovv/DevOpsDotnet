@@ -22,10 +22,10 @@ public class CalculatorServiceTests
     }
 
     /// <summary>
-    /// Sum_TenMinusFive_Ten
+    /// Difference_TenMinusFive_Ten
     /// </summary>
     [Fact]
-    public void Sum_TenMinusFive_Ten()
+    public void Difference_TenMinusFive_Ten()
     {
         ICalculatorService calculatorService = new CalculatorService();
 
