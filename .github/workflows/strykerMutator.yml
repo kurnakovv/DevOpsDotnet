@@ -3,10 +3,10 @@ name: Stryker mutator (mutation tests)
 on:
   push:
     branches:
-      - main
+      - '*'
   pull_request:
     branches:
-      - main
+      - '*'
 
 jobs:
   mutation-test:
