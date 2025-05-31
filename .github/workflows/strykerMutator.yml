@@ -83,7 +83,7 @@ jobs:
       - name: Report message
         uses: mshick/add-pr-comment@v2
         with:
-          update-only: true
+          update-only: false
           message: |
             <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" /> <br />
             Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br />
