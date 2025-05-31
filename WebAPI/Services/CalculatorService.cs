@@ -28,6 +28,7 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
+        Console.WriteLine("stryker test");
         return a + b;
     }
 }
