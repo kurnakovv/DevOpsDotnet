@@ -81,6 +81,7 @@ jobs:
           path: ${{github.workspace}}/StrykerOutput/**/**/*.html
 
       - name: Report message
+        if: github.event_name == "pull_request"
         uses: mshick/add-pr-comment@v2
         with:
           update-only: false
