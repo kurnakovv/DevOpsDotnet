@@ -88,3 +88,4 @@ jobs:
             Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br />
             [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br/>
             Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+            Test
