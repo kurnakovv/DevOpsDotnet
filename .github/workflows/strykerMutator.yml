@@ -81,7 +81,6 @@ jobs:
           path: ${{github.workspace}}/StrykerOutput/**/**/*.html
 
       - name: Report message
-        if: $ {{ github.event_name == "pull_request" }}
         uses: mshick/add-pr-comment@v2
         with:
           update-only: false
@@ -90,3 +89,4 @@ jobs:
             Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br />
             [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br/>
             Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+        if: github.event_name == 'pull_request'
