@@ -25,6 +25,7 @@ public class UserService
     /// <returns>sum age</returns>
     public async Task<int> SumAge()
     {
+        Console.WriteLine("kek lol chebureq");
         int result = _calculatorService.Sum(
             a: int.MaxValue,
             b: int.MinValue
