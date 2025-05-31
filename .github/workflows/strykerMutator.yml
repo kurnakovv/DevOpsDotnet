@@ -14,6 +14,20 @@ jobs:
     permissions:
       pull-requests: write
     steps:
+      - name: Set target branch
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; \
+            then
+              echo "Target branch is $PR_BASE_REF"
+              echo "TARGET_BRANCH=$PR_BASE_REF" >> $GITHUB_ENV
+            else
+              echo "Target branch is $DEFAULT_BRANCH"
+              echo "TARGET_BRANCH=$DEFAULT_BRANCH" >> $GITHUB_ENV
+            fi
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -33,7 +47,10 @@ jobs:
       - name: Run Stryker (dashboard)
         run: |
           dotnet tool restore
-          dotnet stryker -f .config/stryker-config.json --with-baseline:${{ github.event.pull_request.base.ref }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${GITHUB_REF} --reporter dashboard
+          dotnet stryker -f .config/stryker-config.json --with-baseline:$TARGET_BRANCH --dashboard-api-key $STRYKER_DASHBOARD_API_KEY --version $GITHUB_REF --reporter dashboard
+        env:
+          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+          TARGET_BRANCH: $TARGET_BRANCH
 
       - name: Run Stryker (html)
         run: |
