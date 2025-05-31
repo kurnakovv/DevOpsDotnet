@@ -14,7 +14,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: Set branches
+      - name: Set global variables
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; \
           then
@@ -23,10 +23,18 @@ jobs:
             echo "TARGET_BRANCH=$PR_BASE_REF" >> $GITHUB_ENV
             echo "SOURCE_BRANCH=$PR_REF" >> $GITHUB_ENV
           else
-            echo "Target branch is $DEFAULT_BRANCH"
-            echo "TARGET_BRANCH=$DEFAULT_BRANCH" >> $GITHUB_ENV
+            if [[ "$REF_NAME" != "$DEFAULT_BRANCH" ]]; \
+            then
+              echo "Target branch is $DEFAULT_BRANCH"
+              echo "TARGET_BRANCH=$DEFAULT_BRANCH" >> $GITHUB_ENV
+            fi
             echo "Source branch is $REF_NAME"
             echo "SOURCE_BRANCH=$REF_NAME" >> $GITHUB_ENV
+          fi
+
+          if [[ "$TARGET_BRANCH" != "" ]]; \
+          then
+            echo "BASE_LINE_FLAG=--with-baseline:" >> $GITHUB_ENV
           fi
         env:
           PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
@@ -53,12 +61,7 @@ jobs:
       - name: Run Stryker (dashboard)
         run: |
           dotnet tool restore
-          if [[ ${{ env.TARGET_BRANCH }} != ${{ github.event.repository.default_branch }} ]]; \
-          then
-            dotnet stryker -f .config/stryker-config.json --with-baseline:${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
-          else
-            dotnet stryker -f .config/stryker-config.json --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
-          fi
+          dotnet stryker -f .config/stryker-config.json ${{ env.BASE_LINE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
 
       - name: Run Stryker (html)
         run: |
