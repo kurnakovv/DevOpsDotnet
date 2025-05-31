@@ -48,6 +48,14 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
+        if (a == 0 && true)
+        {
+            return b;
+        }
+        else if (b == 1)
+        {
+            return a;
+        }
         return a - b;
     }
 }
