@@ -11,11 +11,14 @@ on:
 jobs:
   mutation-test:
     runs-on: ubuntu-latest
-
+    permissions:
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0 # fetch all branches
+      
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -27,17 +30,29 @@ jobs:
       - name: Install Stryker.NET
         run: dotnet tool install --global dotnet-stryker
 
-      - name: Add Stryker to PATH
-        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH  # Ensure Stryker is accessible
-
-      - name: Run Stryker
+      - name: Run Stryker (dashboard)
         run: |
           dotnet tool restore
-          dotnet stryker --open-report
-          dotnet stryker --with-baseline:${{ github.event.pull_request.base.ref }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${GITHUB_REF}
+          dotnet stryker -f .config/stryker-config.json --with-baseline:${{ github.event.pull_request.base.ref }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${GITHUB_REF} --reporter dashboard
+
+      - name: Run Stryker (html)
+        run: |
+          dotnet tool restore
+          dotnet stryker -f .config/stryker-config.json --reporter html
 
       - name: Upload Stryker Report
+        id: artifact-upload-step
         uses: actions/upload-artifact@v4
         with:
           name: stryker-report
-          path: ${{github.workspace}}/StrykerOutput/**/**/*.html  # Adjust this path according to where Stryker outputs the report
+          path: ${{github.workspace}}/StrykerOutput/**/**/*.html
+
+      - name: Report message
+        uses: mshick/add-pr-comment@v2
+        with:
+          update-only: true
+          message: |
+            <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" /> <br />
+            Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br />
+            [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br/>
+            Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}

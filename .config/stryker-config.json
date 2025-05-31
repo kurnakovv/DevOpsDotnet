@@ -1,0 +1,13 @@
+{
+    "stryker-config": {
+        "reporters": [
+            "json",
+            "html",
+            "markdown",
+            "dashboard"
+        ],
+        "since": {
+            "enabled": false
+        }
+    }
+}
