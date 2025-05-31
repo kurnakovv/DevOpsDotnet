@@ -48,6 +48,7 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
+        Console.WriteLine("kekw");
         return a - b;
     }
 }
