@@ -22,7 +22,7 @@ public class CalculatorServiceTests
     }
 
     /// <summary>
-    /// Difference_TenMinusFive_Ten
+    /// Difference_TenMinusFive_Ten test
     /// </summary>
     [Fact]
     public void Difference_TenMinusFive_Ten()
