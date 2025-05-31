@@ -17,17 +17,17 @@ jobs:
       - name: Set branches
         run: |
           if [[ "${{ github.event_name }}" == "pull_request" ]]; \
-            then
-              echo "Target branch is $PR_BASE_REF"
-              echo "Source branch is $PR_REF"
-              echo "TARGET_BRANCH=$PR_BASE_REF" >> $GITHUB_ENV
-              echo "SOURCE_BRANCH=$PR_REF" >> $GITHUB_ENV
-            else
-              echo "Target branch is $DEFAULT_BRANCH"
-              echo "TARGET_BRANCH=$DEFAULT_BRANCH" >> $GITHUB_ENV
-              echo "Source branch is $REF_NAME"
-              echo "SOURCE_BRANCH=$REF_NAME" >> $GITHUB_ENV
-            fi
+          then
+            echo "Target branch is $PR_BASE_REF"
+            echo "Source branch is $PR_REF"
+            echo "TARGET_BRANCH=$PR_BASE_REF" >> $GITHUB_ENV
+            echo "SOURCE_BRANCH=$PR_REF" >> $GITHUB_ENV
+          else
+            echo "Target branch is $DEFAULT_BRANCH"
+            echo "TARGET_BRANCH=$DEFAULT_BRANCH" >> $GITHUB_ENV
+            echo "Source branch is $REF_NAME"
+            echo "SOURCE_BRANCH=$REF_NAME" >> $GITHUB_ENV
+          fi
         env:
           PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
           PR_REF: ${{ github.ref }}
@@ -53,7 +53,12 @@ jobs:
       - name: Run Stryker (dashboard)
         run: |
           dotnet tool restore
-          dotnet stryker -f .config/stryker-config.json --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
+          if [[ ${{ env.TARGET_BRANCH }} != ${{ github.event.repository.default_branch }} ]]; \
+          then
+            dotnet stryker -f .config/stryker-config.json --with-baseline:${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
+          else
+            dotnet stryker -f .config/stryker-config.json --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
+          fi
 
       - name: Run Stryker (html)
         run: |
