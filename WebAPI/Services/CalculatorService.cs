@@ -15,6 +15,17 @@ public interface ICalculatorService
         int a,
         int b
     );
+
+    /// <summary>
+    /// Difference
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    int Difference(
+        int a,
+        int b
+    );
 }
 
 /// <summary>
@@ -29,5 +40,14 @@ public class CalculatorService : ICalculatorService
     )
     {
         return a + b;
+    }
+
+    /// <inheritdoc />
+    public int Difference(
+        int a,
+        int b
+    )
+    {
+        return a - b;
     }
 }
