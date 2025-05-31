@@ -29,7 +29,7 @@ public class CalculatorServiceTests
     {
         ICalculatorService calculatorService = new CalculatorService();
 
-        int result = calculatorService.Sum(10, 5);
+        int result = calculatorService.Difference(10, 5);
 
         Assert.Equal(5, result);
         Assert.NotEqual(15, result);
