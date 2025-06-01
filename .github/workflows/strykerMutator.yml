@@ -67,7 +67,7 @@ jobs:
 
       - name: Run Stryker (dashboard)
         run: |
-          dotnet stryker -f .config/stryker-config.json ${{ env.BASE_LINE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --since:False --reporter dashboard
+          dotnet stryker -f .config/stryker-config.json --since:${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
 
       - name: Run Stryker (html)
         run: |
