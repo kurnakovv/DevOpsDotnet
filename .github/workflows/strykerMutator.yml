@@ -65,16 +65,22 @@ jobs:
           dotnet tool install --global dotnet-stryker
           dotnet tool restore
 
-      - name: Run Stryker (since)
+      - name: Run Stryker (diff)
         run: |
-          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }}-since --reporter dashboard --reporter html
+          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }}-diff --reporter dashboard --reporter html --output StrykerOutputDiff
+
+      - name: Run Stryker (source branch)
+        run: |
+          dotnet stryker -f .config/stryker-config.json --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard --reporter html --output StrykerOutput
 
       - name: Upload Stryker Report
         id: artifact-upload-step
         uses: actions/upload-artifact@v4
         with:
           name: stryker-report
-          path: ${{github.workspace}}/StrykerOutput/**/**/*.html
+          path: |
+            ${{github.workspace}}/StrykerOutputDiff/**/**/*.html
+            ${{github.workspace}}/StrykerOutput/**/**/*.html
 
       - name: Report message
         uses: mshick/add-pr-comment@v2
