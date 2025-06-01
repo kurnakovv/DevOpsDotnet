@@ -65,7 +65,7 @@ jobs:
           dotnet tool install --global dotnet-stryker
           dotnet tool restore
 
-      - name: Run Stryker (dashboard)
+      - name: Run Stryker
         run: |
           dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard --reporter html
 
