@@ -68,6 +68,7 @@ jobs:
       - name: Run Stryker (diff)
         run: |
           dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }}-diff --reporter dashboard --reporter html --output StrykerOutputDiff
+        if: github.ref_name != github.event.repository.default_branch
 
       - name: Run Stryker (source branch)
         run: |
