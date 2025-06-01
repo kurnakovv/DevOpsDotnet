@@ -65,23 +65,37 @@ jobs:
           dotnet tool install --global dotnet-stryker
           dotnet tool restore
 
-      - name: Run Stryker
+      - name: Run Stryker (diff)
         run: |
-          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard --reporter html
+          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }}-diff --reporter dashboard --reporter html --output StrykerOutputDiff
+        if: github.ref_name != github.event.repository.default_branch
+
+      - name: Run Stryker (source branch)
+        run: |
+          dotnet stryker -f .config/stryker-config.json --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard --reporter html --output StrykerOutput
 
       - name: Upload Stryker Report
         id: artifact-upload-step
         uses: actions/upload-artifact@v4
         with:
           name: stryker-report
-          path: ${{github.workspace}}/StrykerOutput/**/**/*.html
+          path: |
+            ${{github.workspace}}/StrykerOutputDiff/**/**/*.html
+            ${{github.workspace}}/StrykerOutput/**/**/*.html
 
       - name: Report message
         uses: mshick/add-pr-comment@v2
         with:
           message: |
-            <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" /> <br />
-            Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br />
-            [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br/>
-            Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+            <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" />
+
+            # Stryker .NET
+
+            | Description  | Badge |
+            | ------------ | ----- |
+            | Diff between `${{ env.TARGET_BRANCH }}` (target branch) and `${{ env.SOURCE_BRANCH }}` (source branch) | [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }}-diff)](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }}-diff#mutant) |
+            | `${{ env.SOURCE_BRANCH }}` (source branch) statistics | [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }}#mutant) |
+            | `${{ env.TARGET_BRANCH }}` (target branch) statistics | [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ env.TARGET_BRANCH }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ env.TARGET_BRANCH }}#mutant) |
+
+            Download report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
         if: github.event_name == 'pull_request'

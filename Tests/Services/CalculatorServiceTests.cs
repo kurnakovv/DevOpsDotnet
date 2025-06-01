@@ -34,4 +34,32 @@ public class CalculatorServiceTests
         Assert.Equal(5, result);
         Assert.NotEqual(15, result);
     }
+
+    /// <summary>
+    /// Difference_IfCases_Result
+    /// </summary>
+    [Fact]
+    public void Difference_IfACases_Result()
+    {
+        ICalculatorService calculatorService = new CalculatorService();
+
+        int result = calculatorService.Difference(1, 5);
+
+        Assert.Equal(5, result);
+        Assert.NotEqual(15, result);
+    }
+
+    /// <summary>
+    /// Difference_IfBCases_Result
+    /// </summary>
+    [Fact]
+    public void Difference_IfBCases_Result()
+    {
+        ICalculatorService calculatorService = new CalculatorService();
+
+        int result = calculatorService.Difference(5, 1);
+
+        Assert.Equal(5, result);
+        Assert.NotEqual(15, result);
+    }
 }
