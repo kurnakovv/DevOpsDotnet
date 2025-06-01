@@ -87,8 +87,15 @@ jobs:
         uses: mshick/add-pr-comment@v2
         with:
           message: |
-            <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" /> <br />
-            Stryker dashboard : [here](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br />
-            [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ github.ref }}#mutant) <br/>
-            Download html report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
+            <img src="https://devopsjournal.io/images/2019/20191004/20191004_Stryker_Logo.png" width="100" />
+
+            # Stryker .NET
+
+            | Description  | Badge |
+            | ------------ | ----- |
+            | Diff between `${{ env.TARGET_BRANCH }}` (target branch) and `${{ env.SOURCE_BRANCH }}` (source branch) | [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }}-diff)](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }}-diff#mutant) |
+            | `${{ env.SOURCE_BRANCH }}` (source branch) statistics | [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ env.SOURCE_BRANCH }}#mutant) |
+            | `${{ env.TARGET_BRANCH }}` (target branch) statistics | [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/kurnakovv/DevOpsDotnet/${{ env.TARGET_BRANCH }})](https://dashboard.stryker-mutator.io/reports/github.com/kurnakovv/DevOpsDotnet/${{ env.TARGET_BRANCH }}#mutant) |
+
+            Download report: ${{ steps.artifact-upload-step.outputs.artifact-url }}
         if: github.event_name == 'pull_request'
