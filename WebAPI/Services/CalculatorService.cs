@@ -52,7 +52,7 @@ public class CalculatorService : ICalculatorService
         {
             return b;
         }
-        else if (b == 1 && true)
+        else if (b == 1)
         {
             return a;
         }
