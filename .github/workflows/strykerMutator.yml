@@ -67,11 +67,7 @@ jobs:
 
       - name: Run Stryker (dashboard)
         run: |
-          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard
-
-      - name: Run Stryker (html)
-        run: |
-          dotnet stryker -f .config/stryker-config.json --reporter html
+          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard --reporter html
 
       - name: Upload Stryker Report
         id: artifact-upload-step
