@@ -40,10 +40,10 @@ jobs:
 
             echo "Source branch is $REF_NAME"
             echo "SOURCE_BRANCH=$REF_NAME" >> $GITHUB_ENV
-
-            echo "Config path is $CONFIG_PATH"
-            echo "CONFIG_PATH=$CONFIG_PATH" >> $GITHUB_ENV
           fi
+
+          echo "Config path is $CONFIG_PATH"
+          echo "CONFIG_PATH=$CONFIG_PATH" >> $GITHUB_ENV
         env:
           PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
           PR_REF: ${{ github.ref }}
