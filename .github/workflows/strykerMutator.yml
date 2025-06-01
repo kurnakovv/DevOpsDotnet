@@ -65,9 +65,9 @@ jobs:
           dotnet tool install --global dotnet-stryker
           dotnet tool restore
 
-      - name: Run Stryker
+      - name: Run Stryker (since)
         run: |
-          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }} --reporter dashboard --reporter html
+          dotnet stryker -f .config/stryker-config.json ${{ env.SINCE_FLAG }}${{ env.TARGET_BRANCH }} --dashboard-api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }} --version ${{ env.SOURCE_BRANCH }}-since --reporter dashboard --reporter html
 
       - name: Upload Stryker Report
         id: artifact-upload-step
