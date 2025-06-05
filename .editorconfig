@@ -521,31 +521,31 @@ dotnet_diagnostic.SA1404.severity = error
 dotnet_diagnostic.SA1405.severity = error
 
 # A call to Debug.Fail in C# code does not include a descriptive message.
-dotnet_diagnostic.SA1406.severity = none
+dotnet_diagnostic.SA1406.severity = error
 
 # A C# statement contains a complex arithmetic expression which omits parenthesis around operators.
-dotnet_diagnostic.SA1407.severity = none
+dotnet_diagnostic.SA1407.severity = error
 
 # A C# statement contains a complex conditional expression which omits parenthesis around operators.
-dotnet_diagnostic.SA1408.severity = none
+dotnet_diagnostic.SA1408.severity = error
 
 # A C# file contains code which is unnecessary and can be removed without changing the overall logic of the code.
-dotnet_diagnostic.SA1409.severity = none
+dotnet_diagnostic.SA1409.severity = error
 
 # A call to a C# anonymous method does not contain any method parameters, yet the statement still includes parenthesis.
-dotnet_diagnostic.SA1410.severity = none
+dotnet_diagnostic.SA1410.severity = error
 
 # An attribute declaration does not contain any parameters, yet it still includes parenthesis.
-dotnet_diagnostic.SA1411.severity = none
+dotnet_diagnostic.SA1411.severity = error
 
 # The encoding of the file is not UTF-8 with byte order mark.
 dotnet_diagnostic.SA1412.severity = none
 
 # A multi-line initializer should use a comma on the last item.
-dotnet_diagnostic.SA1413.severity = none
+dotnet_diagnostic.SA1413.severity = error
 
 # Tuple types appearing in member declarations should have explicitly named tuple elements.
-dotnet_diagnostic.SA1414.severity = none
+dotnet_diagnostic.SA1414.severity = error
 
 
 ### Layout Rules (SA1500-)
@@ -553,67 +553,67 @@ dotnet_diagnostic.SA1414.severity = none
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/LayoutRules.md
 
 # The opening or closing brace within a C# statement, element, or expression is not placed on its own line.
-dotnet_diagnostic.SA1500.severity = none
+dotnet_diagnostic.SA1500.severity = error
 
 # A C# statement containing opening and closing braces is written completely on a single line.
-dotnet_diagnostic.SA1501.severity = none
+dotnet_diagnostic.SA1501.severity = error
 
 # A C# element containing opening and closing braces is written completely on a single line.
-dotnet_diagnostic.SA1502.severity = none
+dotnet_diagnostic.SA1502.severity = error
 
 # The opening and closing braces for a C# statement have been omitted.
-dotnet_diagnostic.SA1503.severity = none
+dotnet_diagnostic.SA1503.severity = error
 
 # Within a C# property, indexer or event, at least one of the child accessors is written on a single line, and at least one of the child accessors is written across multiple lines.
 dotnet_diagnostic.SA1504.severity = none
 
 # An opening brace within a C# element, statement, or expression is followed by a blank line.
-dotnet_diagnostic.SA1505.severity = none
+dotnet_diagnostic.SA1505.severity = error
 
 # An element documentation header above a C# element is followed by a blank line.
-dotnet_diagnostic.SA1506.severity = none
+dotnet_diagnostic.SA1506.severity = error
 
 # The C# code contains multiple blank lines in a row.
-dotnet_diagnostic.SA1507.severity = none
+dotnet_diagnostic.SA1507.severity = error
 
 # A closing brace within a C# element, statement, or expression is preceded by a blank line.
-dotnet_diagnostic.SA1508.severity = none
+dotnet_diagnostic.SA1508.severity = error
 
 # An opening brace within a C# element, statement, or expression is preceded by a blank line.
-dotnet_diagnostic.SA1509.severity = none
+dotnet_diagnostic.SA1509.severity = error
 
 # Chained C# statements are separated by a blank line.
-dotnet_diagnostic.SA1510.severity = none
+dotnet_diagnostic.SA1510.severity = error
 
 # The while footer at the bottom of a do-while statement is separated from the statement by a blank line.
-dotnet_diagnostic.SA1511.severity = none
+dotnet_diagnostic.SA1511.severity = error
 
 # A single-line comment within C# code is followed by a blank line.
-dotnet_diagnostic.SA1512.severity = none
+dotnet_diagnostic.SA1512.severity = error
 
 # A closing brace within a C# element, statement, or expression is not followed by a blank line.
 dotnet_diagnostic.SA1513.severity = none
 
 # An element documentation header above a C# element is not preceded by a blank line.
-dotnet_diagnostic.SA1514.severity = none
+dotnet_diagnostic.SA1514.severity = error
 
 # A single-line comment within C# code is not preceded by a blank line.
-dotnet_diagnostic.SA1515.severity = none
+dotnet_diagnostic.SA1515.severity = error
 
 # Adjacent C# elements are not separated by a blank line.
 dotnet_diagnostic.SA1516.severity = none
 
 # The code file has blank lines at the start.
-dotnet_diagnostic.SA1517.severity = none
+dotnet_diagnostic.SA1517.severity = error
 
 # The line endings at the end of a file do not match the settings for the project.
-dotnet_diagnostic.SA1518.severity = none
+dotnet_diagnostic.SA1518.severity = error
 
 # The opening and closing braces for a multi-line C# statement have been omitted.
-dotnet_diagnostic.SA1519.severity = none
+dotnet_diagnostic.SA1519.severity = error
 
 # The opening and closing braces of a chained `if`/`else if`/`else` construct were included for some clauses, but omitted for others.
-dotnet_diagnostic.SA1520.severity = none
+dotnet_diagnostic.SA1520.severity = error
 
 
 ### Documentation Rules (SA1600-)
@@ -630,64 +630,64 @@ dotnet_diagnostic.SA1601.severity = none
 dotnet_diagnostic.SA1602.severity = none
 
 # The Xml within a C# element's document header is badly formed.
-dotnet_diagnostic.SA1603.severity = none
+dotnet_diagnostic.SA1603.severity = error
 
 # The Xml header documentation for a C# element is missing a `<summary>` tag.
-dotnet_diagnostic.SA1604.severity = none
+dotnet_diagnostic.SA1604.severity = error
 
 # The `<summary>` or `<content>` tag within the documentation header for a C# code element is missing or empty.
 dotnet_diagnostic.SA1605.severity = none
 
 # The `<summary>` tag within the documentation header for a C# code element is empty.
-dotnet_diagnostic.SA1606.severity = none
+dotnet_diagnostic.SA1606.severity = error
 
 # The `<summary>` or `<content>` tag within the documentation header for a C# code element is empty.
-dotnet_diagnostic.SA1607.severity = none
+dotnet_diagnostic.SA1607.severity = error
 
 # The `<summary>` tag within an element's Xml header documentation contains the default text generated by Visual Studio during the creation of the element.
-dotnet_diagnostic.SA1608.severity = none
+dotnet_diagnostic.SA1608.severity = error
 
 # The Xml header documentation for a C# property does not contain a `<value>` tag.
 dotnet_diagnostic.SA1609.severity = none
 
 # The Xml header documentation for a C# property contains an empty `<value>` tag.
-dotnet_diagnostic.SA1610.severity = none
+dotnet_diagnostic.SA1610.severity = error
 
 # A C# method, constructor, delegate or indexer element is missing documentation for one or more of its parameters.
-dotnet_diagnostic.SA1611.severity = none
+dotnet_diagnostic.SA1611.severity = error
 
 # The documentation describing the parameters to a C# method, constructor, delegate or indexer element does not match the actual parameters on the element.
-dotnet_diagnostic.SA1612.severity = none
+dotnet_diagnostic.SA1612.severity = error
 
 # A `<param>` tag within a C# element's documentation header is missing a name attribute containing the name of the parameter.
-dotnet_diagnostic.SA1613.severity = none
+dotnet_diagnostic.SA1613.severity = error
 
 # A `<param>` tag within a C# element's documentation header is empty.
-dotnet_diagnostic.SA1614.severity = none
+dotnet_diagnostic.SA1614.severity = error
 
 # A C# element is missing documentation for its return value.
-dotnet_diagnostic.SA1615.severity = none
+dotnet_diagnostic.SA1615.severity = error
 
 # The `<returns>` tag within a C# element's documentation header is empty.
-dotnet_diagnostic.SA1616.severity = none
+dotnet_diagnostic.SA1616.severity = error
 
 # A C# code element does not contain a return value, or returns void, but the documentation header for the element contains a `<returns>` tag.
 dotnet_diagnostic.SA1617.severity = none
 
 # A generic C# element is missing documentation for one or more of its generic type parameters.
-dotnet_diagnostic.SA1618.severity = none
+dotnet_diagnostic.SA1618.severity = error
 
 # A generic, partial C# element is missing documentation for one or more of its generic type parameters, and the documentation for the element contains a `<summary>` tag.
-dotnet_diagnostic.SA1619.severity = none
+dotnet_diagnostic.SA1619.severity = error
 
 # The `<typeparam>` tags within the Xml header documentation for a generic C# element do not match the generic type parameters on the element.
-dotnet_diagnostic.SA1620.severity = none
+dotnet_diagnostic.SA1620.severity = error
 
 # A `<typeparam>` tag within the Xml header documentation for a generic C# element is missing a name attribute, or contains an empty name attribute.
-dotnet_diagnostic.SA1621.severity = none
+dotnet_diagnostic.SA1621.severity = error
 
 # A `<typeparam>` tag within the Xml header documentation for a generic C# element is empty.
-dotnet_diagnostic.SA1622.severity = none
+dotnet_diagnostic.SA1622.severity = error
 
 # The documentation text within a C# property's `<summary>` tag does not match the accessors within the property.
 dotnet_diagnostic.SA1623.severity = none
@@ -696,19 +696,19 @@ dotnet_diagnostic.SA1623.severity = none
 dotnet_diagnostic.SA1624.severity = none
 
 # The Xml documentation for a C# element contains two or more identical entries, indicating that the documentation has been copied and pasted.
-dotnet_diagnostic.SA1625.severity = none
+dotnet_diagnostic.SA1625.severity = error
 
 # The C# code contains a single-line comment which begins with three forward slashes in a row.
-dotnet_diagnostic.SA1626.severity = none
+dotnet_diagnostic.SA1626.severity = error
 
 # The Xml header documentation for a C# code element contains an empty tag.
-dotnet_diagnostic.SA1627.severity = none
+dotnet_diagnostic.SA1627.severity = error
 
 # A section of the Xml header documentation for a C# element does not begin with a capital letter.
-dotnet_diagnostic.SA1628.severity = none
+dotnet_diagnostic.SA1628.severity = error
 
 # A section of the Xml header documentation for a C# element does not end with a period (also known as a full stop).
-dotnet_diagnostic.SA1629.severity = none
+dotnet_diagnostic.SA1629.severity = error
 
 # A section of the Xml header documentation for a C# element does not contain any whitespace between words.
 dotnet_diagnostic.SA1630.severity = none
@@ -716,20 +716,20 @@ dotnet_diagnostic.SA1630.severity = none
 # A section of the Xml header documentation for a C# element does not contain enough alphabetic characters.
 dotnet_diagnostic.SA1631.severity = none
 
-# From StyleCop 4.5 this rule is disabled by default.
+# A violation of this rule occurs when part of the documentation is too short. This can often indicate that the documentation is not descriptive.
 dotnet_diagnostic.SA1632.severity = none
 
 # A C# code file is missing a standard file header.
-dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.SA1633.severity = warning
 
 # The file header at the top of a C# code file is missing a copyright tag.
-dotnet_diagnostic.SA1634.severity = none
+dotnet_diagnostic.SA1634.severity = warning
 
 # The file header at the top of a C# code file is missing copyright text.
-dotnet_diagnostic.SA1635.severity = none
+dotnet_diagnostic.SA1635.severity = warning
 
 # The file header at the top of a C# code file does not contain the appropriate copyright text.
-dotnet_diagnostic.SA1636.severity = none
+dotnet_diagnostic.SA1636.severity = warning
 
 # The file header at the top of a C# code file is missing the file name.
 dotnet_diagnostic.SA1637.severity = none
@@ -738,34 +738,34 @@ dotnet_diagnostic.SA1637.severity = none
 dotnet_diagnostic.SA1638.severity = none
 
 # The file header at the top of a C# code file does not contain a filled-in summary tag.
-dotnet_diagnostic.SA1639.severity = none
+dotnet_diagnostic.SA1639.severity = warning
 
 # The file header at the top of a C# code file does not contain company name text.
-dotnet_diagnostic.SA1640.severity = none
+dotnet_diagnostic.SA1640.severity = warning
 
 # The file header at the top of a C# code file does not contain the appropriate company name text.
-dotnet_diagnostic.SA1641.severity = none
+dotnet_diagnostic.SA1641.severity = warning
 
 # The XML documentation header for a C# constructor does not contain the appropriate summary text.
 dotnet_diagnostic.SA1642.severity = none
 
 # The Xml documentation header for a C# finalizer does not contain the appropriate summary text.
-dotnet_diagnostic.SA1643.severity = none
+dotnet_diagnostic.SA1643.severity = error
 
 # A section within the Xml documentation header for a C# element contains blank lines.
-dotnet_diagnostic.SA1644.severity = none
+dotnet_diagnostic.SA1644.severity = error
 
 # An included Xml documentation file does not exist.
-dotnet_diagnostic.SA1645.severity = none
+dotnet_diagnostic.SA1645.severity = error
 
 # An included Xml documentation link contains an invalid path.
-dotnet_diagnostic.SA1646.severity = none
+dotnet_diagnostic.SA1646.severity = error
 
 # An include tag within an Xml documentation header does not contain valid file and path attribute.
-dotnet_diagnostic.SA1647.severity = none
+dotnet_diagnostic.SA1647.severity = error
 
 # `<inheritdoc>` has been used on an element that doesn't inherit from a base class or implement an interface.
-dotnet_diagnostic.SA1648.severity = none
+dotnet_diagnostic.SA1648.severity = error
 
 # The file name of a C# code file does not match the first type declared in the file.
 dotnet_diagnostic.SA1649.severity = none
@@ -785,7 +785,7 @@ dotnet_diagnostic.SA1652.severity = none
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/AlternativeRules.md
 
 # A call to an instance member of the local class or a base class is prefixed with 'this.', within a C# code file.
-dotnet_diagnostic.SX1101.severity = none
+dotnet_diagnostic.SX1101.severity = error
 
 # A field name does not begin with an underscore.
 dotnet_diagnostic.SX1309.severity = none

@@ -1,3 +1,8 @@
+// <copyright file="Program.cs" company="FooCorp">
+// Copyright (c) FooCorp. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

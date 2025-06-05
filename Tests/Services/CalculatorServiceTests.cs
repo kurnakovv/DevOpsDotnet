@@ -3,12 +3,12 @@
 namespace Tests.Services;
 
 /// <summary>
-/// CalculatorServiceTests
+/// CalculatorServiceTests.
 /// </summary>
 public class CalculatorServiceTests
 {
     /// <summary>
-    /// Sum_FivePlusFive_Ten
+    /// Sum_FivePlusFive_Ten.
     /// </summary>
     [Fact]
     public void Sum_FivePlusFive_Ten()
@@ -22,7 +22,7 @@ public class CalculatorServiceTests
     }
 
     /// <summary>
-    /// Difference_TenMinusFive_Ten
+    /// Difference_TenMinusFive_Ten.
     /// </summary>
     [Fact]
     public void Difference_TenMinusFive_Ten()
@@ -36,7 +36,7 @@ public class CalculatorServiceTests
     }
 
     /// <summary>
-    /// Difference_IfCases_Result
+    /// Difference_IfCases_Result.
     /// </summary>
     [Fact]
     public void Difference_IfACases_Result()
@@ -50,7 +50,7 @@ public class CalculatorServiceTests
     }
 
     /// <summary>
-    /// Difference_IfBCases_Result
+    /// Difference_IfBCases_Result.
     /// </summary>
     [Fact]
     public void Difference_IfBCases_Result()

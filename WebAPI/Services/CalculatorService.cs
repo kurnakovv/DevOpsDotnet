@@ -1,4 +1,9 @@
-﻿namespace WebAPI.Services;
+﻿// <copyright file="CalculatorService.cs" company="FooCorp">
+// Copyright (c) FooCorp. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
+
+namespace WebAPI.Services;
 
 /// <summary>
 /// ICalculatorService.
@@ -6,22 +11,22 @@
 public interface ICalculatorService
 {
     /// <summary>
-    /// Sum
+    /// Sum.
     /// </summary>
-    /// <param name="a">a</param>
+    /// <param name="a">a.</param>
     /// <param name="b">123456789100000000000000000010000000000100000000000001000000000000000100000000000000000000000010000000000000000000010000000001</param>
-    /// <returns>sum</returns>
+    /// <returns>sum.</returns>
     int Sum(
         int a,
         int b
     );
 
     /// <summary>
-    /// Difference
+    /// Difference.
     /// </summary>
-    /// <param name="a"></param>
-    /// <param name="b"></param>
-    /// <returns></returns>
+    /// <param name="a">a.</param>
+    /// <param name="b">b.</param>
+    /// <returns>c.</returns>
     int Difference(
         int a,
         int b
@@ -29,7 +34,7 @@ public interface ICalculatorService
 }
 
 /// <summary>
-/// CalculatorService
+/// CalculatorService.
 /// </summary>
 public class CalculatorService : ICalculatorService
 {
