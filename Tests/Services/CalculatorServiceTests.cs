@@ -1,4 +1,8 @@
-﻿using WebAPI.Services;
+﻿// <copyright file="CalculatorServiceTests.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using WebAPI.Services;
 
 namespace Tests.Services;
 

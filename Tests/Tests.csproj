@@ -8,9 +8,11 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <RepositoryUrl>https://github.com/kurnakovv/DevOpsDotnet</RepositoryUrl>
-    <!--<StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>-->
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="stylecop.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.2" />

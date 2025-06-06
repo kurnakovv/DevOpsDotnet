@@ -5,6 +5,9 @@
             "html",
             "markdown",
             "dashboard"
-        ]
+        ],
+        "dashboard": {
+            "project": "github.com/kurnakovv/DevOpsDotnet"
+        }
     }
 }
