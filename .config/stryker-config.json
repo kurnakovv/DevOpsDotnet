@@ -7,7 +7,7 @@
             "dashboard"
         ]
     },
-    "dashboard": {
-        "project": "github.com/kurnakovv/DevOpsDotnet"
+    "project-info": {
+        "name": "github.com/kurnakovv/DevOpsDotnet"
     }
 }
