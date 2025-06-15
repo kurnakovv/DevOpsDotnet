@@ -9,7 +9,7 @@ jobs:
       
       - name: Hello World kurnakovv
         id: hello-world
-        uses: kurnakovv/HelloWorldAction@v1.x.x
+        uses: kurnakovv/HelloWorldAction@v1.0.0
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number "$RANDOM_NUMBER"
