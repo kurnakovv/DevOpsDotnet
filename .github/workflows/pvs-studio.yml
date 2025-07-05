@@ -23,14 +23,14 @@ jobs:
           pvs-studio-analyzer credentials ${{ secrets.PVS_STUDIO_CREDENTIALS }}
       - name: Build
         run: |
-          dotnet build eFreelancingTeachers.sln
+          dotnet build DevOpsDotnet.sln
       - name: Analyze
         run: |
-          pvs-studio-dotnet -t eFreelancingTeachers.sln -o ./eFreelancingTeachersOutput.json -r --disableLicenseExpirationCheck -F
+          pvs-studio-dotnet -t DevOpsDotnet.sln -o ./DevOpsDotnetOutput.json -r --disableLicenseExpirationCheck -F
       - name: Convert report
         if: always()
         run: |
-          plog-converter eFreelancingTeachersOutput.json -t json -n relative -R toRelative -r $PWD
+          plog-converter DevOpsDotnetOutput.json -t json -n relative -R toRelative -r $PWD
           plog-converter relative.json -t sarif -n pvs-report -r file://
       - name: Publish report
         if: always()
