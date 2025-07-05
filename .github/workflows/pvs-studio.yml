@@ -35,8 +35,8 @@ jobs:
       - name: Convert report
         if: always()
         run: |
-          plog-converter DevOpsDotnetOutput.json -t json -n relative -R toRelative -r $PWD
-          plog-converter relative.json -t sarif -n pvs-report -r file://
+          plog-converter -a GA:1,2,3,4 DevOpsDotnetOutput.json -t json -n relative -R toRelative -r $PWD
+          plog-converter -a GA:1,2,3,4 relative.json -t sarif -n pvs-report -r file://
       - name: Publish report
         if: always()
         uses: github/codeql-action/upload-sarif@v3
