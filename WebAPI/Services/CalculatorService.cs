@@ -53,7 +53,7 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
-        if (a == 1)
+        if (a == 1 && a == 1)
         {
             return b;
         }
