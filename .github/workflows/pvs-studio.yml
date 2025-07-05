@@ -26,7 +26,7 @@ jobs:
           dotnet build DevOpsDotnet.sln
       - name: Analyze
         run: |
-          pvs-studio-dotnet -t DevOpsDotnet.sln -o ./DevOpsDotnetOutput.json -r --disableLicenseExpirationCheck
+          pvs-studio-dotnet -t DevOpsDotnet.sln -o ./DevOpsDotnetOutput.json -r
       - name: Convert report
         if: always()
         run: |
