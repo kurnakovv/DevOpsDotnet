@@ -31,7 +31,7 @@ jobs:
           dotnet build DevOpsDotnet.sln
       - name: Analyze
         run: |
-          pvs-studio-dotnet -t DevOpsDotnet.sln -o ./DevOpsDotnetOutput.json -r
+          pvs-studio-dotnet -t DevOpsDotnet.sln -o ./DevOpsDotnetOutput.json -r -C .config/.pvsconfig
       - name: Convert report
         if: always()
         run: |
