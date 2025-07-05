@@ -1,5 +1,8 @@
 name: Build and PVS-Studio analysis
 on:
+  push:
+    branches:
+      - '**' # All branches
   pull_request:
     branches: [main]
 jobs:
