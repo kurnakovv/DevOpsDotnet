@@ -1,3 +1,4 @@
+# I took most of the code from here https://github.com/feeelin/sast-in-ci-example
 name: Build and PVS-Studio analysis
 on:
   push:
@@ -35,8 +36,8 @@ jobs:
       - name: Convert report
         if: always()
         run: |
-          plog-converter -a GA:1,2,3,4 DevOpsDotnetOutput.json -t json -n relative -R toRelative -r $PWD
-          plog-converter -a GA:1,2,3,4 relative.json -t sarif -n pvs-report -r file://
+          plog-converter DevOpsDotnetOutput.json -a GA:1,2,3,4 -t json -n relative -R toRelative -r $PWD
+          plog-converter relative.json -a GA:1,2,3,4 -t sarif -n pvs-report -r file://
       - name: Publish report
         if: always()
         uses: github/codeql-action/upload-sarif@v3
