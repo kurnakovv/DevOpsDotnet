@@ -61,6 +61,6 @@ public class CalculatorService : ICalculatorService
         {
             return a;
         }
-        return a - b + 0;
+        return a - b;
     }
 }
