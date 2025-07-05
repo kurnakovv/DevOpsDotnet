@@ -9,9 +9,9 @@ on:
 jobs:
   build-analyze:
     runs-on: ubuntu-24.04
-    permissions: write-all
-    # permissions:
-    #   security-events: write
+    #permissions: write-all
+    permissions:
+      security-events: write
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
