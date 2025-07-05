@@ -57,7 +57,7 @@ public class CalculatorService : ICalculatorService
         {
             return b;
         }
-        else if (b == 1)
+        else if (b == 1 && b == 1)
         {
             return a;
         }
