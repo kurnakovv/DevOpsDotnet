@@ -44,7 +44,7 @@ public class CalculatorService : ICalculatorService
         int b
     )
     {
-        return a + b;
+        return a + b + 0;
     }
 
     /// <inheritdoc />
