@@ -1,11 +1,17 @@
+# I took most of the code from here https://github.com/feeelin/sast-in-ci-example
 name: Build and PVS-Studio analysis
 on:
+  push:
+    branches:
+      - '**' # All branches
   pull_request:
     branches: [main]
 jobs:
   build-analyze:
     runs-on: ubuntu-24.04
-    permissions: write-all
+    #permissions: write-all
+    permissions:
+      security-events: write
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -23,15 +29,15 @@ jobs:
           pvs-studio-analyzer credentials ${{ secrets.PVS_STUDIO_CREDENTIALS }}
       - name: Build
         run: |
-          dotnet build eFreelancingTeachers.sln
+          dotnet build DevOpsDotnet.sln
       - name: Analyze
         run: |
-          pvs-studio-dotnet -t eFreelancingTeachers.sln -o ./eFreelancingTeachersOutput.json -r --disableLicenseExpirationCheck -F
+          pvs-studio-dotnet -t DevOpsDotnet.sln -o ./DevOpsDotnetOutput.json -r -C .config/.pvsconfig
       - name: Convert report
         if: always()
         run: |
-          plog-converter eFreelancingTeachersOutput.json -t json -n relative -R toRelative -r $PWD
-          plog-converter relative.json -t sarif -n pvs-report -r file://
+          plog-converter DevOpsDotnetOutput.json -a GA:1,2,3,4 -t json -n relative -R toRelative -r $PWD
+          plog-converter relative.json -a GA:1,2,3,4 -t sarif -n pvs-report -r file://
       - name: Publish report
         if: always()
         uses: github/codeql-action/upload-sarif@v3
