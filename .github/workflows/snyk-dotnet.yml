@@ -1,5 +1,10 @@
 name: Example workflow for dotNET using Snyk
-on: push
+on:
+  push:
+    branches:
+      - '**' # All branches
+  pull_request:
+    branches: [main]
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -23,7 +28,9 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --sarif-file-output=snyk.sarif --file=DevOpsDotnet.sln
+          command: code
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: snyk.sarif
+          category: Snyk
