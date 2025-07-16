@@ -15,12 +15,11 @@ public class SQLInjectionService
     /// <summary>
     /// Test.
     /// </summary>
-    /// <returns>.</returns>
-    public string Made()
+    /// <param name="username">.</param>
+    /// <param name="password">fd.</param>
+    /// <returns>fddfs.</returns>
+    public string Made(string username, string password)
     {
-        string? username = Console.ReadLine();
-        string? password = Console.ReadLine();
-
         string connectionString = "your_connection_string_here";
 
         using (SqlConnection conn = new SqlConnection(connectionString))
