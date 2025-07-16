@@ -44,9 +44,6 @@ public class SQLInjectionService
             }
         }
 
-        string apiKey = "sk_test_1234567890abcdef";  // hardcoded secret
-        Console.WriteLine("Using API key: " + apiKey);
-
         return "Ok";
     }
 }
