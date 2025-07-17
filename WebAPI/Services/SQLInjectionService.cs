@@ -4,8 +4,6 @@
 // </copyright>
 
 using Microsoft.Data.SqlClient;
-using WebAPI.DB;
-using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 
 namespace WebAPI.Services;
