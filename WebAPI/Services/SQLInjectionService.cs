@@ -4,6 +4,9 @@
 // </copyright>
 
 using Microsoft.Data.SqlClient;
+using WebAPI.DB;
+using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace WebAPI.Services;
 
@@ -12,6 +15,8 @@ namespace WebAPI.Services;
 /// </summary>
 public class SQLInjectionService
 {
+    private static readonly Regex ColumnNameRegex = new Regex("^[a-zA-Z0-9_]+$");
+
     /// <summary>
     /// Test.
     /// </summary>
@@ -20,6 +25,19 @@ public class SQLInjectionService
     /// <returns>fddfs.</returns>
     public string Made(string username, string password)
     {
+        // Local Regex variable declaration
+        Regex localColumnNameRegex = ColumnNameRegex;
+
+        if (!localColumnNameRegex.IsMatch(username))
+        {
+            throw new ArgumentException("Invalid column name");
+        }
+
+        if (!localColumnNameRegex.IsMatch(password))
+        {
+            throw new ArgumentException("Invalid column name");
+        }
+
         string connectionString = "your_connection_string_here";
 
         using (SqlConnection conn = new SqlConnection(connectionString))
