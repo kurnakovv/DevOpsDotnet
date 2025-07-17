@@ -97,6 +97,11 @@ jobs:
       run: |
         dotnet restore
         dotnet build --no-restore
+        dotnet build DevOpsDotnet.sln
+    - name: Build with dotnet
+      run: |
+        dotnet restore
+        dotnet build DevOpsDotnet.sln --configuration Release
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
