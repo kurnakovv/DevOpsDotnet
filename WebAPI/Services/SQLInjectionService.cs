@@ -62,4 +62,32 @@ public class SQLInjectionService
 
         return "Ok";
     }
+
+    /// <summary>
+    /// Test.
+    /// </summary>
+    /// <param name="columnName">ffdsf.</param>
+    /// <exception cref="ArgumentException">dfas.</exception>
+    public void ExecuteQuery(string columnName)
+    {
+        // Local Regex variable declaration
+        Regex localColumnNameRegex = ColumnNameRegex;
+
+        if (!localColumnNameRegex.IsMatch(columnName))
+        {
+            throw new ArgumentException("Invalid column name");
+        }
+
+        string query = $"SELECT {columnName} FROM Users";
+        using (SqlConnection connection = new SqlConnection("your_connection_string"))
+        {
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine(reader[0]);
+            }
+        }
+    }
 }
