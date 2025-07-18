@@ -9,9 +9,29 @@ using Microsoft.Data.SqlClient;
 namespace WebAPI.Services;
 
 /// <summary>
+/// ISQLInjectionService.
+/// </summary>
+public interface ISQLInjectionService
+{
+    /// <summary>
+    /// Made.
+    /// </summary>
+    /// <param name="username">username.</param>
+    /// <param name="password">password.</param>
+    /// <returns>string.</returns>
+    string Made(string username, string password);
+
+    /// <summary>
+    /// ExecuteQuery.
+    /// </summary>
+    /// <param name="columnName">columnName.</param>
+    void ExecuteQuery(string columnName);
+}
+
+/// <summary>
 /// Test.
 /// </summary>
-public class SQLInjectionService
+public class SQLInjectionService : ISQLInjectionService
 {
     private static readonly Regex ColumnNameRegex = new Regex("^[a-zA-Z0-9_]+$");
 
