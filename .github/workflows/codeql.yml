@@ -78,9 +78,12 @@ jobs:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
         config: |
-          - exclude:
-            tags:
-              - security/cwe/CWE-275
+          disable-default-queries: true
+          queries:
+            - uses: security-extended,security-and-quality
+          query-filters:
+            - exclude:
+                tags: /cwe-020/
 
         # If you wish to specify custom queries, you can do so here or in a config file.
         # By default, queries listed here will override any specified in a config file.
