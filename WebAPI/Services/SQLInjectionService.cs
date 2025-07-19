@@ -91,7 +91,7 @@ public class SQLInjectionService : ISQLInjectionService
     public void ExecuteQuery(string columnName)
     {
         // Local Regex variable declaration
-        Regex localColumnNameRegex = ColumnNameRegex;
+        Regex localColumnNameRegex = s_columnNameRegex;
 
         if (!localColumnNameRegex.IsMatch(columnName))
         {
