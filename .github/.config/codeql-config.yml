@@ -1,0 +1,4 @@
+queries:
+  - exclude:
+      tags:
+        - security/cwe/CWE-275
