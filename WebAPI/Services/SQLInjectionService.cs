@@ -33,7 +33,7 @@ public interface ISQLInjectionService
 /// </summary>
 public class SQLInjectionService : ISQLInjectionService
 {
-    private static readonly Regex ColumnNameRegex = new Regex("^[a-zA-Z0-9_]+$");
+    private static readonly Regex s_columnNameRegex = new("^[a-zA-Z0-9_]+$", RegexOptions.None, TimeSpan.FromMilliseconds(100));
 
     /// <summary>
     /// Test.
@@ -44,7 +44,7 @@ public class SQLInjectionService : ISQLInjectionService
     public string Made(string username, string password)
     {
         // Local Regex variable declaration
-        Regex localColumnNameRegex = ColumnNameRegex;
+        Regex localColumnNameRegex = s_columnNameRegex;
 
         if (!localColumnNameRegex.IsMatch(username))
         {

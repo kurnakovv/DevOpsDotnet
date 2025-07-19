@@ -178,7 +178,7 @@ dotnet_diagnostic.SA0002.severity = none
 
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1000.md
-dotnet_diagnostic.SA1000.severity = error
+dotnet_diagnostic.SA1000.severity = none
 
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1001.md
 dotnet_diagnostic.SA1001.severity = error
