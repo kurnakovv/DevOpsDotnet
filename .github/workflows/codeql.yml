@@ -80,7 +80,7 @@ jobs:
         config: |
           disable-default-queries: true
           queries:
-            - uses: security-extended,security-and-quality
+            - uses: security-extended
           query-filters:
             - exclude:
                 tags: /cwe-020/
