@@ -16,6 +16,10 @@ trim_trailing_whitespace = true
 # https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/csharp-formatting-options
 # C# files
 [*.cs]
+# Editor Guidelines https://marketplace.visualstudio.com/items?itemName=PaulHarrington.EditorGuidelines
+guidelines = 200
+guidelines_style = 1px solid 40ff0000
+
 # New line preferences
 csharp_new_line_before_open_brace = all
 csharp_new_line_before_else = true
