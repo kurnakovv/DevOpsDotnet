@@ -83,7 +83,7 @@ jobs:
             - uses: security-extended
           query-filters:
             - exclude:
-                tags: /cwe-020/
+                tags: /cwe-829/
             - exclude:
                 tags: /cwe-275/
 
