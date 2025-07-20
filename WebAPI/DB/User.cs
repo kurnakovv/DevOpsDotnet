@@ -14,4 +14,9 @@ public class User
     /// Id.
     /// </summary>
     public long Id { get; set; }
+
+    /// <summary>
+    /// Name.
+    /// </summary>
+    public required string Name { get; set; }
 }
