@@ -34,7 +34,6 @@ jobs:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
         config: |
-          disable-default-queries: true
           queries:
             - uses: security-extended
           query-filters:
