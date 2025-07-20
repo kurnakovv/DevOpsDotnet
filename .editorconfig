@@ -799,6 +799,9 @@ dotnet_diagnostic.SX1309S.severity = none
 
 ### End StyleCop.Analyzers
 
+# ReSharper Inspector Code https://www.jetbrains.com/help/resharper/Reference__Code_Inspections_CSHARP.html
+resharper_inconsistent_naming_highlighting = none
+
 
 # Xml project files
 [*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,nativeproj,locproj}]
