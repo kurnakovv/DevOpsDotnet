@@ -9,9 +9,21 @@ using WebAPI.DB;
 namespace WebAPI.Services;
 
 /// <summary>
+/// IEFCoreTestService.
+/// </summary>
+public interface IEFCoreTestService
+{
+    /// <summary>
+    /// Update.
+    /// </summary>
+    /// <returns>Nothing.</returns>
+    Task UpdateAsync();
+}
+
+/// <summary>
 /// EFCoreTestService.
 /// </summary>
-public class EFCoreTestService
+public class EFCoreTestService : IEFCoreTestService
 {
     private readonly AppDbContext _appDbContext;
 
@@ -26,11 +38,8 @@ public class EFCoreTestService
         _appDbContext = appDbContext;
     }
 
-    /// <summary>
-    /// Update.
-    /// </summary>
-    /// <returns>Nothing.</returns>
-    public async Task Update()
+    /// <inheritdoc />
+    public async Task UpdateAsync()
     {
         await _appDbContext.Users.ExecuteUpdateAsync(x => x.SetProperty(x => x.Name, "vasia"));
     }

@@ -16,16 +16,20 @@ namespace WebAPI.Controllers;
 public class TestController : ControllerBase
 {
     private readonly ISQLInjectionService _sqlInjectionService;
+    private readonly IEFCoreTestService _efCoreTestService;
 
     /// <summary>
     /// TestController.
     /// </summary>
     /// <param name="sqlInjectionService">sqlInjectionService.</param>
+    /// <param name="efCoreTestService">efCoreTestService.</param>
     public TestController(
-        ISQLInjectionService sqlInjectionService
+        ISQLInjectionService sqlInjectionService,
+        IEFCoreTestService efCoreTestService
     )
     {
         _sqlInjectionService = sqlInjectionService;
+        _efCoreTestService = efCoreTestService;
     }
 
     /// <summary>
@@ -50,6 +54,17 @@ public class TestController : ControllerBase
     public IActionResult ExecuteQuery(string columnname)
     {
         _sqlInjectionService.ExecuteQuery(columnname);
+        return Ok();
+    }
+
+    /// <summary>
+    /// Update.
+    /// </summary>
+    /// <returns>Nothing.</returns>
+    [HttpPut("Update")]
+    public async Task<IActionResult> Update()
+    {
+        await _efCoreTestService.UpdateAsync();
         return Ok();
     }
 }
