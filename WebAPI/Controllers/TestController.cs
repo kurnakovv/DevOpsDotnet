@@ -4,6 +4,7 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using WebAPI.Services;
 
 namespace WebAPI.Controllers;
@@ -46,7 +47,7 @@ public class TestController : ControllerBase
     }
 
     /// <summary>
-    /// Made.
+    /// ExecuteQuery.
     /// </summary>
     /// <param name="columnname">columnname.</param>
     /// <returns>string.</returns>
@@ -54,6 +55,28 @@ public class TestController : ControllerBase
     public IActionResult ExecuteQuery(string columnname)
     {
         _sqlInjectionService.ExecuteQuery(columnname);
+        return Ok();
+    }
+
+    /// <summary>
+    /// ExecuteQuery2.
+    /// </summary>
+    /// <param name="columnname">columnname.</param>
+    /// <returns>string.</returns>
+    [HttpPost("ExecuteQuery2")]
+    public IActionResult ExecuteQuery2(string columnname)
+    {
+        string query = $"SELECT {columnname} FROM Users";
+        using (SqlConnection connection = new SqlConnection("your_connection_string"))
+        {
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine(reader[0]);
+            }
+        }
         return Ok();
     }
 

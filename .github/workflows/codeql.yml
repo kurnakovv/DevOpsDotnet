@@ -1,60 +1,60 @@
-# name: "CodeQL Advanced"
+name: "CodeQL Advanced"
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
-# jobs:
-#   analyze:
-#     name: Analyze (${{ matrix.language }})
-#     runs-on: 'ubuntu-latest'
-#     permissions:
-#       security-events: write
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: 'ubuntu-latest'
+    permissions:
+      security-events: write
 
-#       # required to fetch internal or private CodeQL packs
-#       packages: read
+      # required to fetch internal or private CodeQL packs
+      packages: read
 
-#     strategy:
-#       fail-fast: false
-#       matrix:
-#         include:
-#         - language: actions
-#           build-mode: none
-#         - language: csharp
-#           build-mode: manual
-#     steps:
-#     - name: Checkout repository
-#       uses: actions/checkout@v4
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: actions
+          build-mode: none
+        - language: csharp
+          build-mode: manual
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-#     - name: Initialize CodeQL
-#       uses: github/codeql-action/init@v3
-#       with:
-#         languages: ${{ matrix.language }}
-#         build-mode: ${{ matrix.build-mode }}
-#         config: |
-#           queries:
-#             - uses: security-and-quality
-#           query-filters:
-#             - exclude:
-#                 tags: /cwe-829/
-#             - exclude:
-#                 tags: /cwe-275/
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+        config: |
+          queries:
+            - uses: security-and-quality
+          query-filters:
+            - exclude:
+                tags: /cwe-829/
+            - exclude:
+                tags: /cwe-275/
 
-#     - name: Setup .NET
-#       if: matrix.build-mode == 'manual'
-#       uses: actions/setup-dotnet@v4
-#       with:
-#         dotnet-version: 9.0.x
+    - name: Setup .NET
+      if: matrix.build-mode == 'manual'
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
 
-#     - name: dotnet restore/build
-#       if: matrix.build-mode == 'manual'
-#       run: |
-#         dotnet restore
-#         dotnet build DevOpsDotnet.sln
+    - name: dotnet restore/build
+      if: matrix.build-mode == 'manual'
+      run: |
+        dotnet restore
+        dotnet build DevOpsDotnet.sln
 
-#     - name: Perform CodeQL Analysis
-#       uses: github/codeql-action/analyze@v3
-#       with:
-#         category: "/language:${{matrix.language}}"
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{matrix.language}}"
