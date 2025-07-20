@@ -67,4 +67,35 @@ public class TestController : ControllerBase
         await _efCoreTestService.UpdateAsync();
         return Ok();
     }
+
+    /// <summary>
+    /// MissedWhere.
+    /// </summary>
+    /// <returns>.</returns>
+    [HttpGet("MissedWhere")]
+    public IActionResult MissedWhere()
+    {
+        List<int> lst = Enumerable.Range(1, 10).ToList();
+
+        foreach (int i in lst)
+        {
+            if (i % 2 != 0)
+            {
+                continue;
+            }
+            Console.WriteLine(i);
+            Console.WriteLine(i / 2);
+        }
+
+        foreach (int i in lst)
+        {
+            if (i % 2 == 0)
+            {
+                Console.WriteLine(i);
+                Console.WriteLine(i / 2);
+            }
+        }
+
+        return Ok();
+    }
 }
