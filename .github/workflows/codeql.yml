@@ -54,12 +54,12 @@ jobs:
             - exclude:
                 tags: /cwe-275/
 
-    - if: matrix.build-mode == 'manual'
-      shell: bash
-      run: |
-        dotnet restore
-        dotnet build --no-restore
-        dotnet build DevOpsDotnet.sln
+    # - if: matrix.build-mode == 'manual'
+    #   shell: bash
+    #   run: |
+    #     dotnet restore
+    #     dotnet build --no-restore
+    #     dotnet build DevOpsDotnet.sln
     - name: Build with dotnet
       run: |
         dotnet restore
