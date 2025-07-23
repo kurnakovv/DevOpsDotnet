@@ -799,7 +799,9 @@ dotnet_diagnostic.SX1309S.severity = none
 
 ### End StyleCop.Analyzers
 
-# ReSharper Inspector Code https://www.jetbrains.com/help/resharper/Reference__Code_Inspections_CSHARP.html
+### ReSharper Inspector Code https://www.jetbrains.com/help/resharper/Reference__Code_Inspections_CSHARP.html
+
+# Code inspection: Inconsistent Naming https://www.jetbrains.com/help/resharper/InconsistentNaming.html
 resharper_inconsistent_naming_highlighting = none
 
 

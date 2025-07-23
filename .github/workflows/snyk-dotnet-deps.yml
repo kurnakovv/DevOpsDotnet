@@ -1,4 +1,4 @@
-name: Snyk .NET
+name: Snyk .NET dependencies
 on:
   push:
     branches:
@@ -21,17 +21,17 @@ jobs:
         run: dotnet restore
       - name: Build
         run: dotnet build --no-restore
-      - name: Run Snyk to check for vulnerabilities in code
+      - name: Run Snyk to check for vulnerabilities in dependencies
         uses: snyk/actions/dotnet@master
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --sarif-file-output=snyk.sarif --file=DevOpsDotnet.sln --include-ignores
-          command: "code test"
+          command: "test"
       - name: Upload result to GitHub Code Scanning
         if: ${{ hashFiles('snyk.sarif') != '' }}
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: snyk.sarif
-          category: Snyk
+          category: Snyk dependencies
