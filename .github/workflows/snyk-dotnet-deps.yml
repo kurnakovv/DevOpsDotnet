@@ -27,11 +27,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif --file=DevOpsDotnet.sln --include-ignores
+          args: --sarif-file-output=snyk-deps.sarif --file=DevOpsDotnet.sln --include-ignores
           command: "test"
       - name: Upload result to GitHub Code Scanning
-        if: ${{ hashFiles('snyk.sarif') != '' }}
+        if: ${{ hashFiles('snyk-deps') != '' }}
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: snyk.sarif
-          category: Snyk dependencies
+          sarif_file: snyk-deps
+          category: snyk-dependencies
