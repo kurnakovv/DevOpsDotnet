@@ -41,6 +41,7 @@ public class SQLInjectionService : ISQLInjectionService
     /// <param name="username">.</param>
     /// <param name="password">fd.</param>
     /// <returns>fddfs.</returns>
+    /// <exception cref="ArgumentException">ArgumentException.</exception>
     public string Made(string username, string password)
     {
         // Local Regex variable declaration
@@ -56,28 +57,28 @@ public class SQLInjectionService : ISQLInjectionService
             throw new ArgumentException("Invalid column name");
         }
 
-        string connectionString = "your_connection_string_here";
+        const string CONNECTION_STRING = "your_connection_string_here";
 
-        using (SqlConnection conn = new SqlConnection(connectionString))
+        using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
         {
             conn.Open();
 
             string query = $"SELECT * FROM Users WHERE Username = {username} AND Password = {password}";
 
             using (SqlCommand cmd = new SqlCommand(query, conn))
+            using (SqlDataReader reader = cmd.ExecuteReader())
             {
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                if (reader.HasRows)
                 {
-                    if (reader.HasRows)
-                    {
-                        Console.WriteLine("Login successful!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid credentials.");
-                    }
+                    Console.WriteLine("Login successful!");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid credentials.");
                 }
             }
+
+            Console.WriteLine("Hello");
         }
 
         return "Ok";
