@@ -35,14 +35,6 @@ jobs:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
         config-file: .config/codeql-config.yml
-        # config: |
-        #   queries:
-        #     - uses: security-and-quality
-        #   query-filters:
-        #     - exclude:
-        #         tags: /cwe-829/
-        #     - exclude:
-        #         tags: /cwe-275/
 
     - name: Setup .NET
       if: matrix.build-mode == 'manual'
