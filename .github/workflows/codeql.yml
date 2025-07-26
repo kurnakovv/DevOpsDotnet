@@ -34,7 +34,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-        config: .config/codeql-config.yml
+        config-file: .config/codeql-config.yml
         # config: |
         #   queries:
         #     - uses: security-and-quality
