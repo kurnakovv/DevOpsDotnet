@@ -2,9 +2,9 @@ name: Snyk .NET dependencies
 on:
   push:
     branches:
-      - '**' # All branches
+      - '*'
   pull_request:
-    branches: [main]
+    types: [opened, synchronize, reopened]
 jobs:
   security:
     runs-on: ubuntu-latest

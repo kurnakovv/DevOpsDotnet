@@ -2,9 +2,10 @@ name: CodeCov
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - '*'
   pull_request:
-    branches: [ main ]
+    types: [opened, synchronize, reopened]
 jobs:
   build:
     runs-on: ubuntu-latest

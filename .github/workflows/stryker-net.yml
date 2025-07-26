@@ -1,6 +1,11 @@
 name: Stryker.NET mutation testing (kurnakovv)
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   stryker_net:

@@ -3,9 +3,9 @@ name: Build and PVS-Studio analysis
 on:
   push:
     branches:
-      - '**' # All branches
+      - '*'
   pull_request:
-    branches: [main]
+    types: [opened, synchronize, reopened]
 jobs:
   build-analyze:
     runs-on: ubuntu-24.04
