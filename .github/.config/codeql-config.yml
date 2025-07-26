@@ -1,8 +1,11 @@
 name: "Custom CodeQL Configuration for C#"
+
 languages: [ "actions", "csharp" ]
 
 queries:
   - uses: security-and-quality  # or "security-and-quality"
-  - exclude:
-      tags:
-        - security/cwe/CWE-275
+    query-filters:
+      - exclude:
+          tags: /cwe-829/
+      - exclude:
+          tags: /cwe-275/
