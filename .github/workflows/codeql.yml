@@ -34,14 +34,14 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
-        config: |
-          queries:
-            - uses: security-and-quality
-          query-filters:
-            - exclude:
-                tags: /cwe-829/
-            - exclude:
-                tags: /cwe-275/
+        # config: |
+        #   queries:
+        #     - uses: security-and-quality
+        #   query-filters:
+        #     - exclude:
+        #         tags: /cwe-829/
+        #     - exclude:
+        #         tags: /cwe-275/
 
     - name: Setup .NET
       if: matrix.build-mode == 'manual'
