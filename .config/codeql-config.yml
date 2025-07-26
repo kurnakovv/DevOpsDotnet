@@ -4,8 +4,10 @@ languages: [ "actions", "csharp" ]
 
 queries:
   - uses: security-and-quality
-    query-filters:
-      - exclude:
-          tags: /cwe-829/
-      - exclude:
-          tags: /cwe-275/
+
+query-filters:
+  - exclude:
+      tags: /cwe-829/
+  - exclude:
+      tags: /cwe-275/
+
