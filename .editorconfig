@@ -997,10 +997,10 @@ resharper_suggest_base_type_for_parameter_highlighting = none
 # Parameter of the constructor can be declared with the base type
 resharper_suggest_base_type_for_parameter_in_constructor_highlighting = none
 
-# Parameter type can be IEnumerable&lt;T&gt; (non-private accessibility)
+# Parameter type can be IEnumerable<T> (non-private accessibility)
 resharper_parameter_type_can_be_enumerable_global_highlighting = none
 
-# Parameter type can be IEnumerable&lt;T&gt; (private accessibility)
+# Parameter type can be IEnumerable<T> (private accessibility)
 resharper_parameter_type_can_be_enumerable_local_highlighting = none
 
 # Prefer using concrete value over 'default' or 'new()'
@@ -1060,67 +1060,67 @@ resharper_replace_with_last_or_default_3_highlighting = none
 # Replace with LastOrDefault($args$)
 resharper_replace_with_last_or_default_4_highlighting = none
 
-# Replace with OfType&lt;T&gt;()
+# Replace with OfType<T>()
 resharper_replace_with_of_type_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;()
+# Replace with OfType<T>()
 resharper_replace_with_of_type_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;()
+# Replace with OfType<T>()
 resharper_replace_with_of_type_3_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Any()
+# Replace with OfType<T>().Any()
 resharper_replace_with_of_type_any_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Any() (replace with OfType&lt;T&gt;().Any(..))
+# Replace with OfType<T>().Any() (replace with OfType<T>().Any(..))
 resharper_replace_with_of_type_any_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Count()
+# Replace with OfType<T>().Count()
 resharper_replace_with_of_type_count_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Count() (replace with OfType&lt;T&gt;().Count(..))
+# Replace with OfType<T>().Count() (replace with OfType<T>().Count(..))
 resharper_replace_with_of_type_count_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().First()
+# Replace with OfType<T>().First()
 resharper_replace_with_of_type_first_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().First() (replace with OfType&lt;T&gt;().First(..))
+# Replace with OfType<T>().First() (replace with OfType<T>().First(..))
 resharper_replace_with_of_type_first_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().FirstOrDefault()
+# Replace with OfType<T>().FirstOrDefault()
 resharper_replace_with_of_type_first_or_default_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().FirstOrDefault() (replace with OfType&lt;T&gt;().FirstOrDefault(..))
+# Replace with OfType<T>().FirstOrDefault() (replace with OfType<T>().FirstOrDefault(..))
 resharper_replace_with_of_type_first_or_default_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Last()
+# Replace with OfType<T>().Last()
 resharper_replace_with_of_type_last_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Last() (replace with OfType&lt;T&gt;().Last(..))
+# Replace with OfType<T>().Last() (replace with OfType<T>().Last(..))
 resharper_replace_with_of_type_last_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().LastOrDefault()
+# Replace with OfType<T>().LastOrDefault()
 resharper_replace_with_of_type_last_or_default_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().LastOrDefault() (replace with OfType&lt;T&gt;().LastOrDefault(..))
+# Replace with OfType<T>().LastOrDefault() (replace with OfType<T>().LastOrDefault(..))
 resharper_replace_with_of_type_last_or_default_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().LongCount()
+# Replace with OfType<T>().LongCount()
 resharper_replace_with_of_type_long_count_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Single()
+# Replace with OfType<T>().Single()
 resharper_replace_with_of_type_single_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Single() (replace with OfType&lt;T&gt;().Single(..))
+# Replace with OfType<T>().Single() (replace with OfType<T>().Single(..))
 resharper_replace_with_of_type_single_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().SingleOrDefault()
+# Replace with OfType<T>().SingleOrDefault()
 resharper_replace_with_of_type_single_or_default_1_highlighting = none
 
-# Replace with OfType&lt;T&gt;().SingleOrDefault() (replace with OfType&lt;T&gt;().SingleOrDefault(..))
+# Replace with OfType<T>().SingleOrDefault() (replace with OfType<T>().SingleOrDefault(..))
 resharper_replace_with_of_type_single_or_default_2_highlighting = none
 
-# Replace with OfType&lt;T&gt;().Where() (replace with OfType&lt;T&gt;().Where(..))
+# Replace with OfType<T>().Where() (replace with OfType<T>().Where(..))
 resharper_replace_with_of_type_where_highlighting = none
 
 # Replace with simple assignment
@@ -1171,10 +1171,10 @@ resharper_replace_with_single_or_default_3_highlighting = none
 # Replace with SingleOrDefault($args$)
 resharper_replace_with_single_or_default_4_highlighting = none
 
-# Return type can be IEnumerable&lt;T&gt; (non-private accessibility)
+# Return type can be IEnumerable<T> (non-private accessibility)
 resharper_return_type_can_be_enumerable_global_highlighting = none
 
-# Return type can be IEnumerable&lt;T&gt; (private accessibility)
+# Return type can be IEnumerable<T> (private accessibility)
 resharper_return_type_can_be_enumerable_local_highlighting = none
 
 # Simplify conditional ternary expression
@@ -1297,7 +1297,7 @@ resharper_use_array_creation_expression_1_highlighting = none
 # Use array creation expression
 resharper_use_array_creation_expression_2_highlighting = none
 
-# Use 'Array.Empty&lt;T&gt;()'
+# Use 'Array.Empty<T>()'
 resharper_use_array_empty_method_highlighting = none
 
 # Use cancellation token
@@ -1747,7 +1747,7 @@ resharper_c_sharp_warnings_cs1584_highlighting = none
 # Taking address of marshal-by-reference class field
 resharper_c_sharp_warnings_cs0197_highlighting = none
 
-# The '&amp;' operator should not be used on parameters or local variables in async methods.
+# The '&' operator should not be used on parameters or local variables in async methods.
 resharper_c_sharp_warnings_cs9123_highlighting = none
 
 # The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
@@ -1780,7 +1780,7 @@ resharper_c_sharp_warnings_cs8962_highlighting = none
 # The default parameter value does not match in the target delegate type.
 resharper_c_sharp_warnings_cs9099_highlighting = none
 
-# The 'EnumeratorCancellation' attribute is only effective on a parameter of type 'CancellationToken' in an async-iterator method returning 'IAsyncEnumerable&lt;&gt;'.
+# The 'EnumeratorCancellation' attribute is only effective on a parameter of type 'CancellationToken' in an async-iterator method returning 'IAsyncEnumerable<>'.
 resharper_c_sharp_warnings_cs8424_highlighting = none
 
 # The given expression always matches the provided constant.
@@ -2179,7 +2179,7 @@ resharper_convert_closure_to_method_group_highlighting = none
 # Convert negated 'is' expression into 'is' expression with negated pattern
 resharper_use_negated_pattern_in_is_expression_highlighting = none
 
-# Convert 'Nullable&lt;T&gt;' into 'T?'
+# Convert 'Nullable<T>' into 'T?'
 resharper_convert_nullable_to_short_form_highlighting = none
 
 # Convert property into auto-property
@@ -2371,7 +2371,7 @@ resharper_use_string_interpolation_highlighting = none
 # Use type annotation syntax
 resharper_use_nullable_reference_types_annotation_syntax_highlighting = none
 
-# Use unsigned right shift operator '&gt;&gt;&gt;'
+# Use unsigned right shift operator '>>>'
 resharper_use_unsigned_right_shift_operator_highlighting = none
 
 # Use UTF-8 string literal
@@ -2389,7 +2389,7 @@ resharper_use_with_expression_to_copy_struct_highlighting = none
 # Use 'with' expression to copy tuple
 resharper_use_with_expression_to_copy_tuple_highlighting = none
 
-# NUnit. Async test method must return Task or Task&lt;T&gt;
+# NUnit. Async test method must return Task or Task<T>
 resharper_n_unit_async_method_must_be_task_highlighting = none
 
 # NUnit. Duplicate values.
@@ -3049,10 +3049,10 @@ resharper_razor_layout_not_resolved_highlighting = none
 # Unknown Razor section
 resharper_razor_section_not_resolved_highlighting = none
 
-# Usage of &lt;inheritdoc /&gt; is invalid
+# Usage of <inheritdoc /> is invalid
 resharper_inheritdoc_invalid_usage_highlighting = none
 
-# Use &lt;inheritdoc /&gt; on root level to inherit documentation from base candidate
+# Use <inheritdoc /> on root level to inherit documentation from base candidate
 resharper_inheritdoc_consider_usage_highlighting = none
 
 # Use collection's count property
@@ -3292,7 +3292,7 @@ resharper_redundant_fixed_pointer_declaration_highlighting = none
 # Redundant global using directive
 resharper_redundant_using_directive_global_highlighting = none
 
-# Redundant 'IEnumerable.Cast&lt;T&gt;' or 'IEnumerable.OfType&lt;T&gt;' call
+# Redundant 'IEnumerable.Cast<T>' or 'IEnumerable.OfType<T>' call
 resharper_redundant_enumerable_cast_call_highlighting = none
 
 # Redundant lambda expression parameter type specification
@@ -3760,7 +3760,7 @@ resharper_odin_odin_member_present_in_multiple_groups_highlighting = none
 # Method referenced in string literal does not have the expected signature
 resharper_unity_incorrect_method_signature_in_string_literal_highlighting = none
 
-# 'MonoBehaviour' instances must be instantiated with 'GameObject.AddComponent&lt;T&gt;()' instead of 'new'
+# 'MonoBehaviour' instances must be instantiated with 'GameObject.AddComponent<T>()' instead of 'new'
 resharper_unity_incorrect_mono_behaviour_instantiation_highlighting = none
 
 # Parameter should be derived from 'Component'
@@ -3808,7 +3808,7 @@ resharper_unity_load_scene_unexisting_scene_highlighting = none
 # Scene is disabled in the build settings
 resharper_unity_load_scene_disabled_scene_name_highlighting = none
 
-# 'ScriptableObject' instances must be instantiated with 'ScriptableObject.CreateInstance&lt;T&gt;()' instead of 'new'
+# 'ScriptableObject' instances must be instantiated with 'ScriptableObject.CreateInstance<T>()' instead of 'new'
 resharper_unity_incorrect_scriptable_object_instantiation_highlighting = none
 
 # Setting 'parent' property immediately after object instantiation is inefficient
@@ -3823,7 +3823,7 @@ resharper_unity_prefer_address_by_id_to_graphics_params_highlighting = none
 # String based lookup of component type is inefficient
 resharper_unity_prefer_generic_method_overload_highlighting = none
 
-# SystemApi.Query&lt;...&gt; type parameters must be Aspect, RefRO, or RefRW
+# SystemApi.Query<...> type parameters must be Aspect, RefRO, or RefRW
 resharper_unity_entities_must_be_surrounded_with_ref_rw_ro_highlighting = none
 
 # The index is missing in the build settings
@@ -3832,7 +3832,7 @@ resharper_unity_load_scene_wrong_index_highlighting = none
 # The input name is not defined in the Input manager
 resharper_unity_unknown_input_axes_highlighting = none
 
-# The layer is not defined in the 'Tags &amp; Layers'
+# The layer is not defined in the 'Tags & Layers'
 resharper_unity_unknown_layer_highlighting = none
 
 # The resource is not defined in the project
@@ -3841,7 +3841,7 @@ resharper_unity_unknown_resource_highlighting = none
 # The same shortcut is defined for another menu item
 resharper_unity_duplicate_shortcut_highlighting = none
 
-# The tag is not defined in the 'Tags &amp; Layers'
+# The tag is not defined in the 'Tags & Layers'
 resharper_unity_unknown_tag_highlighting = none
 
 # There is no animator state with the same name in the project.
