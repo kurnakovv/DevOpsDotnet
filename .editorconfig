@@ -805,7 +805,7 @@ dotnet_diagnostic.SX1309S.severity = none
 ## ReSharper Inspect Code https://www.jetbrains.com/help/resharper/Reference__Code_Inspections_CSHARP.html
 ##
 
-extends: resharper-inspect-code.editorconfig
+resharper_inspectcode_severity = none
 
 ## *END* ReSharper Inspect Code
 
