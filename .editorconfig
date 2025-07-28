@@ -805,7 +805,8 @@ dotnet_diagnostic.SX1309S.severity = none
 ## ReSharper Inspect Code https://www.jetbrains.com/help/resharper/Reference__Code_Inspections_CSHARP.html
 ##
 
-resharper_inspectcode_severity = none
+# Code inspection: Inconsistent Naming https://www.jetbrains.com/help/resharper/InconsistentNaming.html
+resharper_inconsistent_naming_highlighting = none
 
 ## *END* ReSharper Inspect Code
 
