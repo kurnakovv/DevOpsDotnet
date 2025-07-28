@@ -18,7 +18,7 @@ jobs:
       run: |
         if [[ ${{ github.event.pull_request.user.login }} == "$APPROVER1" || ${{ github.event.pull_request.user.login }} == "$APPROVER2" ]]; \
         then
-          echo "Hooray! PR approved"
+          echo "Hooray! PR approved by ${{ github.event.pull_request.user.login }}"
         else
           echo "This pull request needs approval from $APPROVER1 or $APPROVER2"
           exit 1
