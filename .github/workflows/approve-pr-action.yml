@@ -1,0 +1,25 @@
+name: Approve PR action
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  APPROVER1: kurnakovv
+  APPROVER2: aboba
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check author permission
+      run: |
+        if [[ ${{ github.event.pull_request.user.login }} == "$APPROVER1" || ${{ github.event.pull_request.user.login }} == "$APPROVER2" ]]; \
+        then
+          echo "Hooray! PR approved"
+        else
+          echo "This pull request needs approval from $APPROVER1 or $APPROVER2"
+          exit 1
+        fi
