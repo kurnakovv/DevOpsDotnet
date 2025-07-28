@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  APPROVER1: kurnakovv
+  APPROVER1: kurnakovv_invalid
   APPROVER2: aboba
 
 jobs:
