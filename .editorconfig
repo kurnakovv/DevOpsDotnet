@@ -802,13 +802,13 @@ dotnet_diagnostic.SX1309S.severity = none
 
 
 ##
-## ReSharper Inspector Code https://www.jetbrains.com/help/resharper/Reference__Code_Inspections_CSHARP.html
+## ReSharper Inspect Code https://www.jetbrains.com/help/resharper/Reference__Code_Inspections_CSHARP.html
 ##
 
 # Code inspection: Inconsistent Naming https://www.jetbrains.com/help/resharper/InconsistentNaming.html
 resharper_inconsistent_naming_highlighting = none
 
-## *END* ReSharper Inspector Code
+## *END* ReSharper Inspect Code
 
 
 
