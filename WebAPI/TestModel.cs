@@ -11,7 +11,7 @@ namespace WebAPI;
 public class TestModel
 {
     /// <summary>
-    /// Gets or sets tst.
+    /// Gets or sets test.
     /// </summary>
     public int MyProperty { get; set; }
 
