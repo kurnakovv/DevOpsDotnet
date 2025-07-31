@@ -3,6 +3,7 @@ name: Approve PR action
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:  # allow manual re-run
 
 env:
   APPROVER1: kurnakovv
@@ -16,10 +17,18 @@ jobs:
     steps:
     - name: Check author permission
       run: |
-        if [[ ${{ github.event.pull_request.user.login }} == "$APPROVER1" || ${{ github.event.pull_request.user.login }} == "$APPROVER2" ]]; \
-        then
-          echo "Hooray! PR approved by ${{ github.event.pull_request.user.login }}"
-        else
-          echo "This pull request needs approval from $APPROVER1 or $APPROVER2"
+        echo "Triggered by: ${{ github.actor }}"
+        echo "Event type: ${{ github.event_name }}"
+
+        if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+          echo "::error ::❌ This workflow must be *manually* approved by users $APPROVER1 or $APPROVER2"
           exit 1
         fi
+
+        if [[ ${{ github.actor }} != "$APPROVER1" && ${{ github.actor }} != "$APPROVER2" ]]; \
+        then
+          echo "::error ::❌ This pull request needs approval from $APPROVER1 or $APPROVER2"
+          exit 1
+        fi
+
+        echo "✅ Hooray! PR approved by ${{ github.actor }}"
