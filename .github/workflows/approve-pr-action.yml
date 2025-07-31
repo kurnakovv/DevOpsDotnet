@@ -17,7 +17,7 @@ jobs:
     - name: Check author permission
       run: |
         echo "Triggered by: ${{ github.actor }}"
-        echo "Attemp number: ${{ github.run_attempt }}
+        echo "Attemp number: ${{ github.run_attempt }}"
 
         if [[ ${{ github.actor }} != "$APPROVER1" && ${{ github.actor }} != "$APPROVER2" ]]; \
         then
