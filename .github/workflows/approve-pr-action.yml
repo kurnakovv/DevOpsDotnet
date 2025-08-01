@@ -1,0 +1,33 @@
+name: Approve PR action
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  APPROVER1: kurnakovv
+  APPROVER2: aboba
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check author permission
+      run: |
+        echo "Triggered by: ${{ github.actor }}"
+        echo "Attemp number: ${{ github.run_attempt }}"
+
+        if [[ ${{ github.actor }} != "$APPROVER1" && ${{ github.actor }} != "$APPROVER2" ]]; \
+        then
+          echo "::error ::❌ This pull request needs approval from $APPROVER1 or $APPROVER2"
+          exit 1
+        fi
+
+        if [[ "${{ github.run_attempt }}" == 1 ]]; then
+          echo "::error ::❌ $APPROVER1 or $APPROVER2 must re-run this job"
+          exit 1
+        fi
+
+        echo "✅ Hooray! PR approved by ${{ github.actor }}"
