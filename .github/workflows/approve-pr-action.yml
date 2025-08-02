@@ -48,3 +48,4 @@ jobs:
         fi
 
         echo "✅ Hooray! PR approved by ${{ github.triggering_actor }}"
+      shell: bash
