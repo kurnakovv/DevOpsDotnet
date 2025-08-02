@@ -16,10 +16,10 @@ jobs:
     steps:
     - name: Check author permission
       run: |
-        echo "Triggered by: ${{ github.actor }}"
+        echo "Triggered by: ${{ github.triggering_actor }}"
         echo "Attemp number: ${{ github.run_attempt }}"
 
-        if [[ ${{ github.actor }} != "$APPROVER1" && ${{ github.actor }} != "$APPROVER2" ]]; \
+        if [[ ${{ github.triggering_actor }} != "$APPROVER1" && ${{ github.triggering_actor }} != "$APPROVER2" ]]; \
         then
           echo "::error ::❌ This pull request needs approval from $APPROVER1 or $APPROVER2"
           exit 1
