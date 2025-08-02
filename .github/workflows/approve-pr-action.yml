@@ -6,7 +6,7 @@ on:
 
 env:
   APPROVER1: kurnakovv
-  APPROVER2: aboba
+  APPROVER2: KurnakovMaksimMini
 
 jobs:
   approve_check:
