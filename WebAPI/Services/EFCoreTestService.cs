@@ -9,7 +9,7 @@ using WebAPI.DB;
 namespace WebAPI.Services;
 
 /// <summary>
-/// IEFCoreTestService.
+/// IEFCoreTestService test.
 /// </summary>
 public interface IEFCoreTestService
 {
