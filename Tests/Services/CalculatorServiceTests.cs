@@ -12,7 +12,7 @@ namespace Tests.Services;
 public class CalculatorServiceTests
 {
     /// <summary>
-    /// Sum_FivePlusFive_Ten.
+    /// Sum_FivePlusFive_Ten test.
     /// </summary>
     [Fact]
     public void Sum_FivePlusFive_Ten()
