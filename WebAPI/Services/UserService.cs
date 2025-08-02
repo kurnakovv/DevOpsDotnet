@@ -6,7 +6,7 @@
 namespace WebAPI.Services;
 
 /// <summary>
-/// UserService.
+/// UserService test.
 /// </summary>
 public class UserService
 {
