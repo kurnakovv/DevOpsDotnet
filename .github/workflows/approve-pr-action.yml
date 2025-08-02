@@ -20,6 +20,30 @@ jobs:
         echo "Triggered by: ${{ github.triggering_actor }}"
         echo "Attemp number: ${{ github.run_attempt }}"
 
+        if [[ ${{ github.triggering_actor }} != "$APPROVER1" && ${{ github.triggering_actor }} != "$APPROVER2" ]]; \
+        then
+          echo "::error::❌👮‍♂️ This pull request needs approval from $APPROVER1 or $APPROVER2"
+          exit 1
+        fi
 
+        if [[ ${{ github.run_attempt }} == 1 ]]; then
+          echo "::error::❌🔄 $APPROVER1 or $APPROVER2 must re-run this job"
+          exit 1
+        fi
+
+        if [[ ${{ github.triggering_actor }} == ${{ github.event.pull_request.user.login }} ]]; \
+        then
+          echo "::error::❌🪞 You can't approve yourself"
+
+          if [[ ${{ github.triggering_actor }} != "$APPROVER1" }} ]]; \
+          then
+            echo "::warning::🛟 Request approval from $APPROVER2"
+          fi
+          if [[ ${{ github.triggering_actor }} != "$APPROVER2" }} ]]; \
+            echo "::warning::🛟 Request approval from $APPROVER1"
+          fi
+
+          exit 1
+        fi
 
         echo "✅ Hooray! PR approved by ${{ github.triggering_actor }}"
