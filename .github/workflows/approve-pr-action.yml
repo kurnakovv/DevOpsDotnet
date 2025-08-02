@@ -35,11 +35,11 @@ jobs:
         then
           echo "::error::❌🪞 You can't approve yourself"
 
-          if [[ ${{ github.triggering_actor }} != "$APPROVER1" ]]; \
+          if [[ ${{ github.triggering_actor }} == "$APPROVER1" ]]; \
           then
             echo "::warning::🛟 Request approval from $APPROVER2"
           fi
-          if [[ ${{ github.triggering_actor }} != "$APPROVER2" ]]; \
+          if [[ ${{ github.triggering_actor }} == "$APPROVER2" ]]; \
           then
             echo "::warning::🛟 Request approval from $APPROVER1"
           fi
