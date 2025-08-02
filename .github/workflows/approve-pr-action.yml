@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Check author permission
       run: |
-        echo "PR is opened by ${{ github.event.pull_request.user.login }}"
+        echo "PR is opened by: ${{ github.event.pull_request.user.login }}"
         echo "Triggered by: ${{ github.triggering_actor }}"
         echo "Attemp number: ${{ github.run_attempt }}"
 
@@ -35,11 +35,11 @@ jobs:
         then
           echo "::error::❌🪞 You can't approve yourself"
 
-          if [[ ${{ github.triggering_actor }} != "$APPROVER1" }} ]]; \
+          if [[ ${{ github.triggering_actor }} != "$APPROVER1" ]]; \
           then
             echo "::warning::🛟 Request approval from $APPROVER2"
           fi
-          if [[ ${{ github.triggering_actor }} != "$APPROVER2" }} ]]; \
+          if [[ ${{ github.triggering_actor }} != "$APPROVER2" ]]; \
             echo "::warning::🛟 Request approval from $APPROVER1"
           fi
 
