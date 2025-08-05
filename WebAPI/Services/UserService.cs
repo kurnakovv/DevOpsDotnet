@@ -26,7 +26,7 @@ public class UserService
     }
 
     /// <summary>
-    /// SumAge.
+    /// Sum age.
     /// </summary>
     /// <returns>sum age.</returns>
     public async Task<int> SumAge()
