@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  APPROVERS: kurnakovv,aboba
+  APPROVERS: KurnakovMaksimMini,aboba
 
 jobs:
   approve_check:
