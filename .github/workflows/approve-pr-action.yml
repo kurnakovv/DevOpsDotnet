@@ -5,8 +5,7 @@ on:
     types: [opened, synchronize, reopened]
 
 env:
-  APPROVER1: kurnakovv
-  APPROVER2: KurnakovMaksimMini
+  APPROVERS: KurnakovMaksimMini,aboba
 
 jobs:
   approve_check:
@@ -16,36 +15,74 @@ jobs:
     steps:
     - name: Check author permission
       run: |
-        echo "PR is opened by: ${{ github.event.pull_request.user.login }}"
-        echo "Triggered by: ${{ github.triggering_actor }}"
-        echo "Attemp number: ${{ github.run_attempt }}"
+        IFS=',' read -ra APPROVER_ARRAY <<< "${APPROVERS}"
+        AUTHOR="${{ github.triggering_actor }}"
+        IS_APPROVED=false
 
-        if [[ ${{ github.triggering_actor }} != "$APPROVER1" && ${{ github.triggering_actor }} != "$APPROVER2" ]]; \
-        then
-          echo "::error::❌👮‍♂️ This pull request needs approval from $APPROVER1 or $APPROVER2"
-          exit 1
-        fi
-
-        if [[ ${{ github.run_attempt }} == 1 ]]; then
-          echo "::error::❌🔄 $APPROVER1 or $APPROVER2 must re-run this job"
-          exit 1
-        fi
-
-        if [[ ${{ github.triggering_actor }} == ${{ github.event.pull_request.user.login }} ]]; \
-        then
-          echo "::error::❌🪞 You can't approve yourself"
-
-          if [[ ${{ github.triggering_actor }} == "$APPROVER1" ]]; \
-          then
-            echo "::warning::💡 Request approval from $APPROVER2"
+        for APPROVER in "${APPROVER_ARRAY[@]}"; do
+          if [[ "$AUTHOR" == "$APPROVER" ]]; then
+            IS_APPROVED=true
+            break
           fi
-          if [[ ${{ github.triggering_actor }} == "$APPROVER2" ]]; \
-          then
-            echo "::warning::💡 Request approval from $APPROVER1"
-          fi
+        done
 
+        if [[ "$IS_APPROVED" == "false" ]]; then
+          echo "::error::❌ This pull request needs approval from one of the approvers: ${APPROVERS//,/ or }"
           exit 1
         fi
 
-        echo "✅ Hooray! PR approved by ${{ github.triggering_actor }}"
+        echo "✅ Hooray! PR approved by $AUTHOR"
       shell: bash
+
+
+# name: Approve PR action
+
+# on:
+#   pull_request:
+#     types: [opened, synchronize, reopened]
+
+# env:
+#   APPROVER1: kurnakovv
+#   APPROVER2: KurnakovMaksimMini
+
+# jobs:
+#   approve_check:
+
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Check author permission
+#       run: |
+#         echo "PR is opened by: ${{ github.event.pull_request.user.login }}"
+#         echo "Triggered by: ${{ github.triggering_actor }}"
+#         echo "Attemp number: ${{ github.run_attempt }}"
+
+#         if [[ ${{ github.triggering_actor }} != "$APPROVER1" && ${{ github.triggering_actor }} != "$APPROVER2" ]]; \
+#         then
+#           echo "::error::❌👮‍♂️ This pull request needs approval from $APPROVER1 or $APPROVER2"
+#           exit 1
+#         fi
+
+#         if [[ ${{ github.run_attempt }} == 1 ]]; then
+#           echo "::error::❌🔄 $APPROVER1 or $APPROVER2 must re-run this job"
+#           exit 1
+#         fi
+
+#         if [[ ${{ github.triggering_actor }} == ${{ github.event.pull_request.user.login }} ]]; \
+#         then
+#           echo "::error::❌🪞 You can't approve yourself"
+
+#           if [[ ${{ github.triggering_actor }} == "$APPROVER1" ]]; \
+#           then
+#             echo "::warning::💡 Request approval from $APPROVER2"
+#           fi
+#           if [[ ${{ github.triggering_actor }} == "$APPROVER2" ]]; \
+#           then
+#             echo "::warning::💡 Request approval from $APPROVER1"
+#           fi
+
+#           exit 1
+#         fi
+
+#         echo "✅ Hooray! PR approved by ${{ github.triggering_actor }}"
+#       shell: bash
