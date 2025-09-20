@@ -13,7 +13,6 @@
             "high": 1,
             "low": 1,
             "break": 1
-        },
-        "since": { "enabled": true }
+        }
     }
 }

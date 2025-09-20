@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # Extract all branches, this is needed to compare branches (when report-source-branch-diff:true)
+          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
