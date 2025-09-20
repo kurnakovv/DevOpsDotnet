@@ -67,9 +67,9 @@ public class TestController : ControllerBase
     public IActionResult ExecuteQuery2(string columnname)
     {
         string query = $"SELECT {columnname} FROM Users";
-        using (SqlConnection connection = new SqlConnection("your_connection_string"))
+        using (SqlConnection connection = new("your_connection_string"))
         {
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand command = new(query, connection);
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
@@ -87,6 +87,8 @@ public class TestController : ControllerBase
     [HttpPut("Update")]
     public async Task<IActionResult> Update()
     {
+        const int V = (int)0;
+        System.Console.WriteLine(V);
         await _efCoreTestService.UpdateAsync();
         return Ok();
     }
