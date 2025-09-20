@@ -117,6 +117,10 @@ public class TestController : ControllerBase
                 Console.WriteLine(i);
                 Console.WriteLine(i / 2);
             }
+            if (i == 5)
+            {
+                Console.WriteLine(i);
+            }
         }
 
         return Ok();
