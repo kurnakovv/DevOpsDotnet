@@ -28,3 +28,4 @@ jobs:
         with:
           config-path: ".config/stryker-config.json"
           dashboard-api-key: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+          report-source-branch-diff: "true"
