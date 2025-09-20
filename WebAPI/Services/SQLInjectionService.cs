@@ -59,27 +59,25 @@ public class SQLInjectionService : ISQLInjectionService
 
         const string CONNECTION_STRING = "your_connection_string_here";
 
-        using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+        using SqlConnection conn = new(CONNECTION_STRING);
+        conn.Open();
+
+        string query = $"SELECT * FROM Users WHERE Username = {username} AND Password = {password}";
+
+        using (SqlCommand cmd = new(query, conn))
+        using (SqlDataReader reader = cmd.ExecuteReader())
         {
-            conn.Open();
-
-            string query = $"SELECT * FROM Users WHERE Username = {username} AND Password = {password}";
-
-            using (SqlCommand cmd = new SqlCommand(query, conn))
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            if (reader.HasRows)
             {
-                if (reader.HasRows)
-                {
-                    Console.WriteLine("Login successful!");
-                }
-                else
-                {
-                    Console.WriteLine("Invalid credentials.");
-                }
+                Console.WriteLine("Login successful!");
             }
-
-            Console.WriteLine("Hello");
+            else
+            {
+                Console.WriteLine("Invalid credentials.");
+            }
         }
+
+        Console.WriteLine("Hello");
 
         return "Ok";
     }
@@ -100,15 +98,13 @@ public class SQLInjectionService : ISQLInjectionService
         }
 
         string query = $"SELECT {columnName} FROM Users";
-        using (SqlConnection connection = new SqlConnection("your_connection_string"))
+        using SqlConnection connection = new("your_connection_string");
+        SqlCommand command = new(query, connection);
+        connection.Open();
+        SqlDataReader reader = command.ExecuteReader();
+        while (reader.Read())
         {
-            SqlCommand command = new SqlCommand(query, connection);
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                Console.WriteLine(reader[0]);
-            }
+            Console.WriteLine(reader[0]);
         }
     }
 }
