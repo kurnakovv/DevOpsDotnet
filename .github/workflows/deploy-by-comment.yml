@@ -1,0 +1,40 @@
+name: Deploy by owner comment
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  deploy:
+    if: >
+      github.event.issue.pull_request != null &&
+      github.event.comment.body == '/deploy' &&
+      github.event.comment.author_association == 'OWNER'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run deploy process
+        env:
+          CHECK_SECRET: ${{ secrets.CHECK_SECRET }}
+        run: |
+          echo "Starting deploy..."
+          dotnet build /p:MySecret="$CHECK_SECRET"
+
+      - name: Comment success
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🚀 Deploy started by owner"
+            });

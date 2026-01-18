@@ -42,6 +42,7 @@ public class TestController : ControllerBase
     [HttpPost("Made")]
     public IActionResult Made(string username, string password)
     {
+        // Test comment.
         string result = _sqlInjectionService.Made(username, password);
         return Ok(result);
     }
