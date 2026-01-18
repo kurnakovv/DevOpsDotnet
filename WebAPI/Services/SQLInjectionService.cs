@@ -9,7 +9,7 @@ using Microsoft.Data.SqlClient;
 namespace WebAPI.Services;
 
 /// <summary>
-/// ISQLInjectionService.
+/// ISQLInjectionService test.
 /// </summary>
 public interface ISQLInjectionService
 {
