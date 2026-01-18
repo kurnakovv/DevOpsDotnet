@@ -60,7 +60,7 @@ public class TestController : ControllerBase
     }
 
     /// <summary>
-    /// ExecuteQuery2.
+    /// ExecuteQuery2 biak.
     /// </summary>
     /// <param name="columnname">columnname.</param>
     /// <returns>string.</returns>
